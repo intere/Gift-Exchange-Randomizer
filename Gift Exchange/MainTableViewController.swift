@@ -10,22 +10,17 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 60
-        tableView.rowHeight = UITableViewAutomaticDimension
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        tableView.rowHeight = UITableView.automaticDimension
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         registerForListeners()
 
+        AnalyticsManager.shared.trackScreen(named: "Main")
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -41,6 +36,7 @@ class MainTableViewController: UITableViewController {
 
 extension MainTableViewController {
 
+    @objc
     func newNameAdded(_ notification: NSNotification) {
         guard let userInfo = notification.userInfo else {
             // TODO: Log an error
@@ -62,6 +58,7 @@ extension MainTableViewController {
         }
     }
 
+    @objc
     func resetAction(_ notification: NSNotification) {
         NameManager.shared.clear()
         tableView.reloadData()
@@ -156,6 +153,13 @@ extension MainTableViewController {
             result = success
         }
         return result
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "showRandomizeTableSegue" {
+            AnalyticsManager.shared.trackTappedRandomized()
+        }
     }
 }
 

@@ -20,22 +20,20 @@ class RandomizeNamesTableViewController: UITableViewController {
         super.viewDidLoad()
         randomizeMatchup()
         tableView.estimatedRowHeight = 60
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
         NotificationCenter.default.addObserver(self, selector: #selector(userClickedRandomize(_:)), name: NSNotification.Name("RandomizeAction"), object: nil)
+
+        AnalyticsManager.shared.trackScreen(named: "Randomize Names")
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
         super.viewWillDisappear(animated)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
 }
@@ -44,6 +42,7 @@ class RandomizeNamesTableViewController: UITableViewController {
 
 extension RandomizeNamesTableViewController {
 
+    @objc
     func userClickedRandomize(_ notification: NSNotification) {
         randomizeMatchup()
     }
@@ -96,12 +95,10 @@ extension RandomizeNamesTableViewController {
 // MARK: - Helper functions
 
 fileprivate extension RandomizeNamesTableViewController {
-
-
+    
     func randomizeMatchup() {
         names = NameManager.shared.getAllNames()
         AlertHelper.checkRandomizeMatchup(names: names, parentVC: self) { (success: Bool) in
-            
             if success {
                 MatchupManager.shared.names = names
                 MatchupManager.shared.randomize()

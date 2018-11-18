@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36562E9C21A1115100C97B57 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36562E9B21A1115100C97B57 /* AnalyticsManager.swift */; };
 		36B3F5DE1DCD6C6800EED2D8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3F5DD1DCD6C6800EED2D8 /* RootViewController.swift */; };
 		36B3F5E01DCD6CD200EED2D8 /* RandomizeNamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3F5DF1DCD6CD200EED2D8 /* RandomizeNamesTableViewController.swift */; };
 		36B3F5E21DCD701100EED2D8 /* RandomizeButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3F5E11DCD701100EED2D8 /* RandomizeButtonTableViewCell.swift */; };
@@ -53,6 +54,7 @@
 		01E495C18399A11D95712017 /* Pods-Gift ExchangeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gift ExchangeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gift ExchangeTests/Pods-Gift ExchangeTests.release.xcconfig"; sourceTree = "<group>"; };
 		19D540FAA048139C0A4710B1 /* Pods-Gift Exchange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gift Exchange.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gift Exchange/Pods-Gift Exchange.debug.xcconfig"; sourceTree = "<group>"; };
 		2F598CFBDC27AD1C882C157E /* Pods-Gift ExchangeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gift ExchangeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gift ExchangeUITests/Pods-Gift ExchangeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		36562E9B21A1115100C97B57 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		36B3F5DD1DCD6C6800EED2D8 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		36B3F5DF1DCD6CD200EED2D8 /* RandomizeNamesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomizeNamesTableViewController.swift; sourceTree = "<group>"; };
 		36B3F5E11DCD701100EED2D8 /* RandomizeButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomizeButtonTableViewCell.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				36B3F5E41DCD718C00EED2D8 /* NameManager.swift */,
 				36C45E6A1DCE3D6C00E87710 /* MatchupManager.swift */,
 				89D8FD0D1DD7C69800E5BB4C /* AlertHelper.swift */,
+				36562E9B21A1115100C97B57 /* AnalyticsManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -315,15 +318,18 @@
 					8973CE071DB592E600CC3DE4 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = UX4EK78427;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					8973CE1E1DB592E600CC3DE4 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 8973CE071DB592E600CC3DE4;
 					};
 					8973CE291DB592E600CC3DE4 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 8973CE071DB592E600CC3DE4;
 					};
@@ -404,7 +410,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" dab0c1bd118d7c0c3e7b86fea0e8d2630e04fcc7 88b36f2ebd8a748acc4c84aa901867ee381390db782a8191b9c05f580bcebb99";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" dab0c1bd118d7c0c3e7b86fea0e8d2630e04fcc7 88b36f2ebd8a748acc4c84aa901867ee381390db782a8191b9c05f580bcebb99\n";
 		};
 		4EE3268AC97834E36C1715AA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -541,6 +547,7 @@
 				36DA1A831DB9C16F00928423 /* EnterNameTableViewCell.swift in Sources */,
 				89ED50F81DCADE6000F191E2 /* ButtonTableViewCell.swift in Sources */,
 				36B3F5E01DCD6CD200EED2D8 /* RandomizeNamesTableViewController.swift in Sources */,
+				36562E9C21A1115100C97B57 /* AnalyticsManager.swift in Sources */,
 				36B3F5DE1DCD6C6800EED2D8 /* RootViewController.swift in Sources */,
 				36C45E6B1DCE3D6C00E87710 /* MatchupManager.swift in Sources */,
 				36B3F5E51DCD718C00EED2D8 /* NameManager.swift in Sources */,
@@ -709,7 +716,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.WillisProgramming.GiftExchange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -725,7 +733,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.WillisProgramming.GiftExchange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -739,7 +748,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.WillisProgramming.Gift-ExchangeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gift Exchange.app/Gift Exchange";
 			};
 			name = Debug;
@@ -754,7 +764,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.WillisProgramming.Gift-ExchangeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gift Exchange.app/Gift Exchange";
 			};
 			name = Release;
@@ -768,7 +779,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.WillisProgramming.Gift-ExchangeUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = "Gift Exchange";
 			};
 			name = Debug;
@@ -782,7 +794,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.WillisProgramming.Gift-ExchangeUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = "Gift Exchange";
 			};
 			name = Release;

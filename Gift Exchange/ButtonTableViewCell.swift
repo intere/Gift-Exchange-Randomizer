@@ -11,7 +11,9 @@ import Foundation
 
 class ButtonTableViewCell: UITableViewCell {
 
-    @IBAction func resetButtonPressed() {
+    @IBAction
+    func resetButtonPressed() {
+        AnalyticsManager.shared.trackTappedReset()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ResetAction"), object: nil)
     }  
     

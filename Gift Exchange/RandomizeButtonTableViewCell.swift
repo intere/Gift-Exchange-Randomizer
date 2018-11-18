@@ -10,7 +10,9 @@ import UIKit
 
 class RandomizeButtonTableViewCell: UITableViewCell {
 
-    @IBAction func randomizePressed(_ sender: UIButton) {
+    @IBAction
+    func randomizePressed(_ sender: UIButton) {
+        AnalyticsManager.shared.trackTappedRandomized()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "RandomizeAction"), object: nil)
     }
 

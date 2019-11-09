@@ -69,7 +69,7 @@
 		3CCBC4AE7A045CA9C9C07F1E /* Pods_Gift_Exchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gift_Exchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E5A66EED2F48E8D8BBCC406 /* Pods_Gift_ExchangeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gift_ExchangeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74520A0496DC016BC357C9BF /* Pods-Gift ExchangeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gift ExchangeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gift ExchangeUITests/Pods-Gift ExchangeUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		8973CE081DB592E600CC3DE4 /* Gift Exchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gift Exchange.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8973CE081DB592E600CC3DE4 /* Gift Xchanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gift Xchanger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8973CE0B1DB592E600CC3DE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8973CE0D1DB592E600CC3DE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8973CE101DB592E600CC3DE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 		8973CE091DB592E600CC3DE4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8973CE081DB592E600CC3DE4 /* Gift Exchange.app */,
+				8973CE081DB592E600CC3DE4 /* Gift Xchanger.app */,
 				8973CE1F1DB592E600CC3DE4 /* Gift ExchangeTests.xctest */,
 				8973CE2A1DB592E600CC3DE4 /* Gift ExchangeUITests.xctest */,
 			);
@@ -260,7 +260,7 @@
 			);
 			name = "Gift Exchange";
 			productName = "Gift Exchange";
-			productReference = 8973CE081DB592E600CC3DE4 /* Gift Exchange.app */;
+			productReference = 8973CE081DB592E600CC3DE4 /* Gift Xchanger.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8973CE1E1DB592E600CC3DE4 /* Gift ExchangeTests */ = {
@@ -716,7 +716,7 @@
 				INFOPLIST_FILE = "Gift Exchange/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.intere.GiftExchange;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Gift Xchanger";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 			};
@@ -733,7 +733,7 @@
 				INFOPLIST_FILE = "Gift Exchange/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.intere.GiftExchange;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Gift Xchanger";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 			};

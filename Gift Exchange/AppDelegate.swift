@@ -6,11 +6,10 @@
 //  Copyright © 2016 Willis Programming. All rights reserved.
 //
 
-import UIKit
 import CoreData
-import Fabric
 import Crashlytics
-
+import Fabric
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,8 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        Fabric.sharedSDK().debug = true
+
         Fabric.with([Crashlytics.self, Answers.self])
 
         return true

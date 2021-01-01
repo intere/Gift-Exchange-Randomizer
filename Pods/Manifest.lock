@@ -1,16 +1,23 @@
 PODS:
-  - Crashlytics (3.14.0):
-    - Fabric (~> 1.10.2)
-  - Fabric (1.10.2)
+  - AppCenter (4.1.0):
+    - AppCenter/Analytics (= 4.1.0)
+    - AppCenter/Crashes (= 4.1.0)
+  - AppCenter/Analytics (4.1.0):
+    - AppCenter/Core
+  - AppCenter/Core (4.1.0)
+  - AppCenter/Crashes (4.1.0):
+    - AppCenter/Core
 
 DEPENDENCIES:
-  - Crashlytics
-  - Fabric
+  - AppCenter
+
+SPEC REPOS:
+  trunk:
+    - AppCenter
 
 SPEC CHECKSUMS:
-  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
-  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  AppCenter: 8832b158d17e54845c3b88a91076218f0b07174d
 
-PODFILE CHECKSUM: 5d6dc98b02180be2a8441658c9976002d57a673f
+PODFILE CHECKSUM: c218f760fe7ecc90a20bc78fd07b6c13c6306cc7
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.10.0

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05EC900C3403A9750C4C8552 /* Pods_Gift_ExchangeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53890D6B2AAB0B1D29DAB264 /* Pods_Gift_ExchangeTests.framework */; };
 		36562E9C21A1115100C97B57 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36562E9B21A1115100C97B57 /* AnalyticsManager.swift */; };
 		36B3F5DE1DCD6C6800EED2D8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3F5DD1DCD6C6800EED2D8 /* RootViewController.swift */; };
 		36B3F5E01DCD6CD200EED2D8 /* RandomizeNamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3F5DF1DCD6CD200EED2D8 /* RandomizeNamesTableViewController.swift */; };
@@ -18,7 +19,7 @@
 		36DA1A801DB9BC4A00928423 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DA1A7F1DB9BC4A00928423 /* MainTableViewController.swift */; };
 		36DA1A831DB9C16F00928423 /* EnterNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DA1A821DB9C16F00928423 /* EnterNameTableViewCell.swift */; };
 		36DA1A851DB9C18900928423 /* NameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DA1A841DB9C18900928423 /* NameTableViewCell.swift */; };
-		8002EC6BF5B2C76204902275 /* Pods_Gift_Exchange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CCBC4AE7A045CA9C9C07F1E /* Pods_Gift_Exchange.framework */; };
+		3F51191D4C7231A295E036A4 /* Pods_Gift_Exchange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B7D3101FBE21CADAC376B7 /* Pods_Gift_Exchange.framework */; };
 		8973CE0C1DB592E600CC3DE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8973CE0B1DB592E600CC3DE4 /* AppDelegate.swift */; };
 		8973CE0E1DB592E600CC3DE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8973CE0D1DB592E600CC3DE4 /* ViewController.swift */; };
 		8973CE111DB592E600CC3DE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8973CE0F1DB592E600CC3DE4 /* Main.storyboard */; };
@@ -26,11 +27,8 @@
 		8973CE161DB592E600CC3DE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8973CE151DB592E600CC3DE4 /* Assets.xcassets */; };
 		8973CE191DB592E600CC3DE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8973CE171DB592E600CC3DE4 /* LaunchScreen.storyboard */; };
 		8973CE241DB592E600CC3DE4 /* Gift_ExchangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8973CE231DB592E600CC3DE4 /* Gift_ExchangeTests.swift */; };
-		8973CE2F1DB592E600CC3DE4 /* Gift_ExchangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8973CE2E1DB592E600CC3DE4 /* Gift_ExchangeUITests.swift */; };
 		89D8FD0E1DD7C69800E5BB4C /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D8FD0D1DD7C69800E5BB4C /* AlertHelper.swift */; };
 		89ED50F81DCADE6000F191E2 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED50F71DCADE6000F191E2 /* ButtonTableViewCell.swift */; };
-		965543D35E662A5FE588CFA6 /* Pods_Gift_ExchangeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80541C6CD53C32FBF680F86 /* Pods_Gift_ExchangeTests.framework */; };
-		E4009E9FC8E575DA2A1AE827 /* Pods_Gift_ExchangeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5A66EED2F48E8D8BBCC406 /* Pods_Gift_ExchangeUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,19 +39,9 @@
 			remoteGlobalIDString = 8973CE071DB592E600CC3DE4;
 			remoteInfo = "Gift Exchange";
 		};
-		8973CE2B1DB592E600CC3DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8973CE001DB592E600CC3DE4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8973CE071DB592E600CC3DE4;
-			remoteInfo = "Gift Exchange";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01E495C18399A11D95712017 /* Pods-Gift ExchangeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gift ExchangeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gift ExchangeTests/Pods-Gift ExchangeTests.release.xcconfig"; sourceTree = "<group>"; };
-		19D540FAA048139C0A4710B1 /* Pods-Gift Exchange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gift Exchange.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gift Exchange/Pods-Gift Exchange.debug.xcconfig"; sourceTree = "<group>"; };
-		2F598CFBDC27AD1C882C157E /* Pods-Gift ExchangeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gift ExchangeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gift ExchangeUITests/Pods-Gift ExchangeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		36562E9B21A1115100C97B57 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		36B3F5DD1DCD6C6800EED2D8 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		36B3F5DF1DCD6CD200EED2D8 /* RandomizeNamesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomizeNamesTableViewController.swift; sourceTree = "<group>"; };
@@ -65,10 +53,11 @@
 		36DA1A7F1DB9BC4A00928423 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		36DA1A821DB9C16F00928423 /* EnterNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterNameTableViewCell.swift; sourceTree = "<group>"; };
 		36DA1A841DB9C18900928423 /* NameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameTableViewCell.swift; sourceTree = "<group>"; };
-		3BA1D9B7A86999CAB7E6615A /* Pods-Gift ExchangeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gift ExchangeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gift ExchangeTests/Pods-Gift ExchangeTests.debug.xcconfig"; sourceTree = "<group>"; };
-		3CCBC4AE7A045CA9C9C07F1E /* Pods_Gift_Exchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gift_Exchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E5A66EED2F48E8D8BBCC406 /* Pods_Gift_ExchangeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gift_ExchangeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		74520A0496DC016BC357C9BF /* Pods-Gift ExchangeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gift ExchangeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gift ExchangeUITests/Pods-Gift ExchangeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		53890D6B2AAB0B1D29DAB264 /* Pods_Gift_ExchangeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gift_ExchangeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58B7D3101FBE21CADAC376B7 /* Pods_Gift_Exchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gift_Exchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		595C70A01AA0E49BAD27A63B /* Pods-Gift ExchangeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gift ExchangeTests.debug.xcconfig"; path = "Target Support Files/Pods-Gift ExchangeTests/Pods-Gift ExchangeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		72DD5C636E65F94801F2C803 /* Pods-Gift Exchange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gift Exchange.debug.xcconfig"; path = "Target Support Files/Pods-Gift Exchange/Pods-Gift Exchange.debug.xcconfig"; sourceTree = "<group>"; };
+		8600CD2F231B8B24B3A483E1 /* Pods-Gift Exchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gift Exchange.release.xcconfig"; path = "Target Support Files/Pods-Gift Exchange/Pods-Gift Exchange.release.xcconfig"; sourceTree = "<group>"; };
 		8973CE081DB592E600CC3DE4 /* Gift Xchanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gift Xchanger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8973CE0B1DB592E600CC3DE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8973CE0D1DB592E600CC3DE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,13 +69,9 @@
 		8973CE1F1DB592E600CC3DE4 /* Gift ExchangeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gift ExchangeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8973CE231DB592E600CC3DE4 /* Gift_ExchangeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gift_ExchangeTests.swift; sourceTree = "<group>"; };
 		8973CE251DB592E600CC3DE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8973CE2A1DB592E600CC3DE4 /* Gift ExchangeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gift ExchangeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8973CE2E1DB592E600CC3DE4 /* Gift_ExchangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gift_ExchangeUITests.swift; sourceTree = "<group>"; };
-		8973CE301DB592E600CC3DE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89D8FD0D1DD7C69800E5BB4C /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		89ED50F71DCADE6000F191E2 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
-		A7B8B7A904AB48722542C0F7 /* Pods-Gift Exchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gift Exchange.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gift Exchange/Pods-Gift Exchange.release.xcconfig"; sourceTree = "<group>"; };
-		D80541C6CD53C32FBF680F86 /* Pods_Gift_ExchangeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gift_ExchangeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D57A8E0F0066592A47CA6E9 /* Pods-Gift ExchangeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gift ExchangeTests.release.xcconfig"; path = "Target Support Files/Pods-Gift ExchangeTests/Pods-Gift ExchangeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8002EC6BF5B2C76204902275 /* Pods_Gift_Exchange.framework in Frameworks */,
+				3F51191D4C7231A295E036A4 /* Pods_Gift_Exchange.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,15 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				965543D35E662A5FE588CFA6 /* Pods_Gift_ExchangeTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8973CE271DB592E600CC3DE4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E4009E9FC8E575DA2A1AE827 /* Pods_Gift_ExchangeUITests.framework in Frameworks */,
+				05EC900C3403A9750C4C8552 /* Pods_Gift_ExchangeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,10 +141,9 @@
 			children = (
 				8973CE0A1DB592E600CC3DE4 /* Gift Exchange */,
 				8973CE221DB592E600CC3DE4 /* Gift ExchangeTests */,
-				8973CE2D1DB592E600CC3DE4 /* Gift ExchangeUITests */,
 				8973CE091DB592E600CC3DE4 /* Products */,
-				EC00C0BCEC2E635CFFECA0A2 /* Pods */,
-				94E746477B3E7AEEEE4E5785 /* Frameworks */,
+				FF46CCEED1E6EE694ECF6057 /* Pods */,
+				C7F88BBF24CCE04406DBFB9D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -176,7 +152,6 @@
 			children = (
 				8973CE081DB592E600CC3DE4 /* Gift Xchanger.app */,
 				8973CE1F1DB592E600CC3DE4 /* Gift ExchangeTests.xctest */,
-				8973CE2A1DB592E600CC3DE4 /* Gift ExchangeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,36 +182,24 @@
 			path = "Gift ExchangeTests";
 			sourceTree = "<group>";
 		};
-		8973CE2D1DB592E600CC3DE4 /* Gift ExchangeUITests */ = {
+		C7F88BBF24CCE04406DBFB9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8973CE2E1DB592E600CC3DE4 /* Gift_ExchangeUITests.swift */,
-				8973CE301DB592E600CC3DE4 /* Info.plist */,
-			);
-			path = "Gift ExchangeUITests";
-			sourceTree = "<group>";
-		};
-		94E746477B3E7AEEEE4E5785 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3CCBC4AE7A045CA9C9C07F1E /* Pods_Gift_Exchange.framework */,
-				D80541C6CD53C32FBF680F86 /* Pods_Gift_ExchangeTests.framework */,
-				4E5A66EED2F48E8D8BBCC406 /* Pods_Gift_ExchangeUITests.framework */,
+				58B7D3101FBE21CADAC376B7 /* Pods_Gift_Exchange.framework */,
+				53890D6B2AAB0B1D29DAB264 /* Pods_Gift_ExchangeTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EC00C0BCEC2E635CFFECA0A2 /* Pods */ = {
+		FF46CCEED1E6EE694ECF6057 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				19D540FAA048139C0A4710B1 /* Pods-Gift Exchange.debug.xcconfig */,
-				A7B8B7A904AB48722542C0F7 /* Pods-Gift Exchange.release.xcconfig */,
-				3BA1D9B7A86999CAB7E6615A /* Pods-Gift ExchangeTests.debug.xcconfig */,
-				01E495C18399A11D95712017 /* Pods-Gift ExchangeTests.release.xcconfig */,
-				74520A0496DC016BC357C9BF /* Pods-Gift ExchangeUITests.debug.xcconfig */,
-				2F598CFBDC27AD1C882C157E /* Pods-Gift ExchangeUITests.release.xcconfig */,
+				72DD5C636E65F94801F2C803 /* Pods-Gift Exchange.debug.xcconfig */,
+				8600CD2F231B8B24B3A483E1 /* Pods-Gift Exchange.release.xcconfig */,
+				595C70A01AA0E49BAD27A63B /* Pods-Gift ExchangeTests.debug.xcconfig */,
+				8D57A8E0F0066592A47CA6E9 /* Pods-Gift ExchangeTests.release.xcconfig */,
 			);
-			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,13 +209,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8973CE331DB592E600CC3DE4 /* Build configuration list for PBXNativeTarget "Gift Exchange" */;
 			buildPhases = (
-				1CCACC933B68DF932F9E5AC2 /* [CP] Check Pods Manifest.lock */,
+				281388DF2FECC427993D714D /* [CP] Check Pods Manifest.lock */,
 				8973CE041DB592E600CC3DE4 /* Sources */,
 				8973CE051DB592E600CC3DE4 /* Frameworks */,
 				8973CE061DB592E600CC3DE4 /* Resources */,
-				92FFC3266A13BCFB960CF65B /* [CP] Embed Pods Frameworks */,
-				D5F7D48E98BF1BB3D2EBA7B6 /* [CP] Copy Pods Resources */,
-				369759C11DCE532100B23139 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -267,12 +227,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8973CE361DB592E600CC3DE4 /* Build configuration list for PBXNativeTarget "Gift ExchangeTests" */;
 			buildPhases = (
-				E64752D96EDF1459950EDF5A /* [CP] Check Pods Manifest.lock */,
+				8B70FE2D4E44B47FEA3E856A /* [CP] Check Pods Manifest.lock */,
 				8973CE1B1DB592E600CC3DE4 /* Sources */,
 				8973CE1C1DB592E600CC3DE4 /* Frameworks */,
 				8973CE1D1DB592E600CC3DE4 /* Resources */,
-				B11413C3C5823A4190C569B8 /* [CP] Embed Pods Frameworks */,
-				4EE3268AC97834E36C1715AA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,27 +241,6 @@
 			productName = "Gift ExchangeTests";
 			productReference = 8973CE1F1DB592E600CC3DE4 /* Gift ExchangeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		8973CE291DB592E600CC3DE4 /* Gift ExchangeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8973CE391DB592E600CC3DE4 /* Build configuration list for PBXNativeTarget "Gift ExchangeUITests" */;
-			buildPhases = (
-				B4E64DF95BB4857EE50C1F1B /* [CP] Check Pods Manifest.lock */,
-				8973CE261DB592E600CC3DE4 /* Sources */,
-				8973CE271DB592E600CC3DE4 /* Frameworks */,
-				8973CE281DB592E600CC3DE4 /* Resources */,
-				E9D0D292463BBDED160B5EDE /* [CP] Embed Pods Frameworks */,
-				BC4577155D16093FD1651DD4 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8973CE2C1DB592E600CC3DE4 /* PBXTargetDependency */,
-			);
-			name = "Gift ExchangeUITests";
-			productName = "Gift ExchangeUITests";
-			productReference = 8973CE2A1DB592E600CC3DE4 /* Gift ExchangeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -318,18 +255,12 @@
 					8973CE071DB592E600CC3DE4 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 268S5GJFWZ;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1230;
 						ProvisioningStyle = Automatic;
 					};
 					8973CE1E1DB592E600CC3DE4 = {
 						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 1010;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 8973CE071DB592E600CC3DE4;
-					};
-					8973CE291DB592E600CC3DE4 = {
-						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1230;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 8973CE071DB592E600CC3DE4;
 					};
@@ -351,7 +282,6 @@
 			targets = (
 				8973CE071DB592E600CC3DE4 /* Gift Exchange */,
 				8973CE1E1DB592E600CC3DE4 /* Gift ExchangeTests */,
-				8973CE291DB592E600CC3DE4 /* Gift ExchangeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -374,163 +304,51 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8973CE281DB592E600CC3DE4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1CCACC933B68DF932F9E5AC2 /* [CP] Check Pods Manifest.lock */ = {
+		281388DF2FECC427993D714D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gift Exchange-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		369759C11DCE532100B23139 /* Fabric */ = {
+		8B70FE2D4E44B47FEA3E856A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
-			name = Fabric;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" dab0c1bd118d7c0c3e7b86fea0e8d2630e04fcc7 88b36f2ebd8a748acc4c84aa901867ee381390db782a8191b9c05f580bcebb99\n";
-		};
-		4EE3268AC97834E36C1715AA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gift ExchangeTests/Pods-Gift ExchangeTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		92FFC3266A13BCFB960CF65B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gift Exchange/Pods-Gift Exchange-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B11413C3C5823A4190C569B8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gift ExchangeTests/Pods-Gift ExchangeTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B4E64DF95BB4857EE50C1F1B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gift ExchangeTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		BC4577155D16093FD1651DD4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gift ExchangeUITests/Pods-Gift ExchangeUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D5F7D48E98BF1BB3D2EBA7B6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gift Exchange/Pods-Gift Exchange-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E64752D96EDF1459950EDF5A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		E9D0D292463BBDED160B5EDE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gift ExchangeUITests/Pods-Gift ExchangeUITests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -567,14 +385,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8973CE261DB592E600CC3DE4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8973CE2F1DB592E600CC3DE4 /* Gift_ExchangeUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -582,11 +392,6 @@
 			isa = PBXTargetDependency;
 			target = 8973CE071DB592E600CC3DE4 /* Gift Exchange */;
 			targetProxy = 8973CE201DB592E600CC3DE4 /* PBXContainerItemProxy */;
-		};
-		8973CE2C1DB592E600CC3DE4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8973CE071DB592E600CC3DE4 /* Gift Exchange */;
-			targetProxy = 8973CE2B1DB592E600CC3DE4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -651,7 +456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -696,7 +501,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -707,97 +512,71 @@
 		};
 		8973CE341DB592E600CC3DE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19D540FAA048139C0A4710B1 /* Pods-Gift Exchange.debug.xcconfig */;
+			baseConfigurationReference = 72DD5C636E65F94801F2C803 /* Pods-Gift Exchange.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 268S5GJFWZ;
 				INFOPLIST_FILE = "Gift Exchange/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.intere.GiftExchange;
 				PRODUCT_NAME = "Gift Xchanger";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		8973CE351DB592E600CC3DE4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A7B8B7A904AB48722542C0F7 /* Pods-Gift Exchange.release.xcconfig */;
+			baseConfigurationReference = 8600CD2F231B8B24B3A483E1 /* Pods-Gift Exchange.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 268S5GJFWZ;
 				INFOPLIST_FILE = "Gift Exchange/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.intere.GiftExchange;
 				PRODUCT_NAME = "Gift Xchanger";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 		8973CE371DB592E600CC3DE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3BA1D9B7A86999CAB7E6615A /* Pods-Gift ExchangeTests.debug.xcconfig */;
+			baseConfigurationReference = 595C70A01AA0E49BAD27A63B /* Pods-Gift ExchangeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Gift ExchangeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.WillisProgramming.Gift-ExchangeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gift Exchange.app/Gift Exchange";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gift Xchanger.app/Gift Xchanger";
 			};
 			name = Debug;
 		};
 		8973CE381DB592E600CC3DE4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01E495C18399A11D95712017 /* Pods-Gift ExchangeTests.release.xcconfig */;
+			baseConfigurationReference = 8D57A8E0F0066592A47CA6E9 /* Pods-Gift ExchangeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Gift ExchangeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.WillisProgramming.Gift-ExchangeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gift Exchange.app/Gift Exchange";
-			};
-			name = Release;
-		};
-		8973CE3A1DB592E600CC3DE4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74520A0496DC016BC357C9BF /* Pods-Gift ExchangeUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				INFOPLIST_FILE = "Gift ExchangeUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.WillisProgramming.Gift-ExchangeUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
-				TEST_TARGET_NAME = "Gift Exchange";
-			};
-			name = Debug;
-		};
-		8973CE3B1DB592E600CC3DE4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F598CFBDC27AD1C882C157E /* Pods-Gift ExchangeUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				INFOPLIST_FILE = "Gift ExchangeUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.WillisProgramming.Gift-ExchangeUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
-				TEST_TARGET_NAME = "Gift Exchange";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gift Xchanger.app/Gift Xchanger";
 			};
 			name = Release;
 		};
@@ -827,15 +606,6 @@
 			buildConfigurations = (
 				8973CE371DB592E600CC3DE4 /* Debug */,
 				8973CE381DB592E600CC3DE4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8973CE391DB592E600CC3DE4 /* Build configuration list for PBXNativeTarget "Gift ExchangeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8973CE3A1DB592E600CC3DE4 /* Debug */,
-				8973CE3B1DB592E600CC3DE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

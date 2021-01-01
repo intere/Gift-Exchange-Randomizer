@@ -6,7 +6,7 @@
 //  Copyright © 2018 Willis Programming. All rights reserved.
 //
 
-import Crashlytics
+import AppCenterAnalytics
 
 class AnalyticsManager {
     static let shared = AnalyticsManager()
@@ -15,16 +15,16 @@ class AnalyticsManager {
     ///
     /// - Parameter named: The name of the screen that was viewed.
     func trackScreen(named: String) {
-        Answers.logContentView(withName: named, contentType: nil, contentId: nil, customAttributes: nil)
+        Analytics.trackEvent("trackScreen", withProperties: ["name": named])
     }
 
     /// Tracks that the "Randomize" button was tapped.
     func trackTappedRandomized() {
-        Answers.logCustomEvent(withName: "Randomized")
+        Analytics.trackEvent("randomized")
     }
 
     /// Tracks that the "Reset" button was tapped.
     func trackTappedReset() {
-        Answers.logCustomEvent(withName: "Reset")
+        Analytics.trackEvent("reset")
     }
 }

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Gift_Exchange
+@testable import Gift_Xchanger
 
 class Gift_ExchangeTests: XCTestCase {
     override func setUp() {

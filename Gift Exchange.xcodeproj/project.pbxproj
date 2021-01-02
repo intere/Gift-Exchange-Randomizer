@@ -26,7 +26,6 @@
 		8973CE141DB592E600CC3DE4 /* Gift_Exchange.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8973CE121DB592E600CC3DE4 /* Gift_Exchange.xcdatamodeld */; };
 		8973CE161DB592E600CC3DE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8973CE151DB592E600CC3DE4 /* Assets.xcassets */; };
 		8973CE191DB592E600CC3DE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8973CE171DB592E600CC3DE4 /* LaunchScreen.storyboard */; };
-		8973CE241DB592E600CC3DE4 /* Gift_ExchangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8973CE231DB592E600CC3DE4 /* Gift_ExchangeTests.swift */; };
 		89D8FD0E1DD7C69800E5BB4C /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D8FD0D1DD7C69800E5BB4C /* AlertHelper.swift */; };
 		89ED50F81DCADE6000F191E2 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED50F71DCADE6000F191E2 /* ButtonTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -67,7 +66,6 @@
 		8973CE181DB592E600CC3DE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8973CE1A1DB592E600CC3DE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8973CE1F1DB592E600CC3DE4 /* Gift ExchangeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gift ExchangeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8973CE231DB592E600CC3DE4 /* Gift_ExchangeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gift_ExchangeTests.swift; sourceTree = "<group>"; };
 		8973CE251DB592E600CC3DE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89D8FD0D1DD7C69800E5BB4C /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		89ED50F71DCADE6000F191E2 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				36B3F5E61DCD75AD00EED2D8 /* Managers */,
-				8973CE231DB592E600CC3DE4 /* Gift_ExchangeTests.swift */,
 				8973CE251DB592E600CC3DE4 /* Info.plist */,
 			);
 			path = "Gift ExchangeTests";
@@ -401,7 +398,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				36B3F5E81DCD75BD00EED2D8 /* NameManagerTest.swift in Sources */,
-				8973CE241DB592E600CC3DE4 /* Gift_ExchangeTests.swift in Sources */,
 				36C45E6D1DCE419F00E87710 /* MatchupManagerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

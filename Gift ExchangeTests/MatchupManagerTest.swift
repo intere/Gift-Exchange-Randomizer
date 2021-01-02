@@ -6,40 +6,39 @@
 //  Copyright © 2016 Willis Programming. All rights reserved.
 //
 
-import XCTest
 @testable import Gift_Xchanger
+import Quick
+import Nimble
+import XCTest
 
-class MatchupManagerTest: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-}
+class MatchupManagerSpec: QuickSpec {
 
-// MARK: - Test Randomize
+    override func spec() {
+        let names = [ "Bob", "Mary", "Jane", "Eric", "Homer", "Marge", "Bart" ]
+        var subject: MatchupManager!
 
-extension MatchupManagerTest {
+        (0..<100).forEach { _ in
+            context("Randomize") {
+                var assignments: [String: String]!
+                beforeEach {
+                    subject = MatchupManager()
+                    subject.names = names
+                    assignments = subject.randomize()
+                }
 
-    func testRandomize() {
+                it("does not assign a person to themselves") {
+                    assignments.forEach { (key, value) in
+                        expect(value).toNot(equal(key))
+                    }
+                }
 
-        for _ in 0..<100 {
-            let names = [ "Bob", "Mary", "Jane", "Eric", "Homer", "Marge", "Bart" ]
-            MatchupManager.shared.names = names
-            let assignments = MatchupManager.shared.randomize()
-
-            for key in assignments.keys {
-                XCTAssertNotEqual(key, assignments[key], "\(key) was assigned to themselves")
-            }
-            for name in names {
-                XCTAssertTrue(Set<String>(assignments.keys).contains(name))
-                XCTAssertTrue(Set<String>(assignments.values).contains(name))
+                it("assigns every single person") {
+                    names.forEach { name in
+                        expect(assignments.keys.contains(name)).to(beTrue())
+                        expect(assignments.values.contains(name)).to(beTrue())
+                    }
+                }
             }
         }
-
     }
-
 }

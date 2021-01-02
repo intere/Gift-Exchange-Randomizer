@@ -6,66 +6,108 @@
 //  Copyright © 2016 Willis Programming. All rights reserved.
 //
 
-import XCTest
 @testable import Gift_Xchanger
+import Quick
+import Nimble
+import XCTest
 
-class NameManagerTest: XCTestCase {
 
-    var initialNames = [String]()
+class NameManagerSpec: QuickSpec {
 
-    override func setUp() {
-        super.setUp()
-        initialNames = NameManager.shared.getAllNames()
-        UserDefaults.standard.set(nil, forKey: "names")
+    override func spec() {
+        context("Add Names") {
+            var defaults: UserDefaults!
+            var subject: NameManager!
+            beforeEach {
+                defaults = .newTestInstance
+                subject = NameManager(with: defaults)
+            }
+
+            it("has a different default instance than the standard") {
+                expect(UserDefaults.standard).toNot(beIdenticalTo(defaults))
+            }
+
+            it("has no names to start") {
+                expect(subject.getAllNames()).to(beEmpty())
+            }
+
+            context("Add 'Greg'") {
+                beforeEach {
+                    subject.add(name: "Greg")
+                }
+                it("has a single name") {
+                    expect(subject.getAllNames().count).to(equal(1))
+                }
+                it("has 'Greg'") {
+                    expect(subject.getAllNames()).to(contain("Greg"))
+                }
+
+                context("Add 'Eric'") {
+                    beforeEach {
+                        subject.add(name: "Eric")
+                    }
+                    it("has two names") {
+                        expect(subject.getAllNames().count).to(equal(2))
+                    }
+                    it("has 'Greg'") {
+                        expect(subject.getAllNames()).to(contain("Greg"))
+                    }
+                    it("has 'Eric'") {
+                        expect(subject.getAllNames()).to(contain("Eric"))
+                    }
+
+                    context("Add 'Lori'") {
+                        beforeEach {
+                            subject.add(name: "Lori")
+                        }
+                        it("has two names") {
+                            expect(subject.getAllNames().count).to(equal(3))
+                        }
+                        it("has 'Greg'") {
+                            expect(subject.getAllNames()).to(contain("Greg"))
+                        }
+                        it("has 'Eric'") {
+                            expect(subject.getAllNames()).to(contain("Eric"))
+                        }
+                        it("has 'Lori'") {
+                            expect(subject.getAllNames()).to(contain("Lori"))
+                        }
+
+                        context("Remove 'Greg'") {
+                            beforeEach {
+                                subject.remove(name: "Greg")
+                            }
+                            it("has two names") {
+                                expect(subject.getAllNames().count).to(equal(2))
+                            }
+                            it("has 'Eric'") {
+                                expect(subject.getAllNames()).to(contain("Eric"))
+                            }
+                            it("has 'Lori'") {
+                                expect(subject.getAllNames()).to(contain("Lori"))
+                            }
+
+                            context("Remove index 0") {
+                                beforeEach {
+                                    subject.remove(index: 0)
+                                }
+                                it("has a single name") {
+                                    expect(subject.getAllNames().count).to(equal(1))
+                                }
+                                it("has 'Lori'") {
+                                    expect(subject.getAllNames()).to(contain("Lori"))
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
-    
-    override func tearDown() {
-        UserDefaults.standard.set(initialNames, forKey: "names")
-        super.tearDown()
-    }
-
 }
 
-// MARK: - Test adding names
-
-extension NameManagerTest {
-
-    func testAddNames() {
-        XCTAssertEqual(0, NameManager.shared.getAllNames().count, "We have some names already")
-
-        NameManager.shared.add(name: "Greg")
-        XCTAssertEqual(1, NameManager.shared.getAllNames().count, "Greg didn't get added, bummer...")
-
-        NameManager.shared.add(name: "Eric")
-        XCTAssertEqual(2, NameManager.shared.getAllNames().count, "Eric didn't get added, bummer...")
-
-        XCTAssertEqual(["Eric", "Greg"], NameManager.shared.getAllNames(), "The names weren't sorted correctly")
-    }
-
-}
-
-// MARK: - Test deleting names
-
-extension NameManagerTest {
-
-    func testDeleteNames() {
-        XCTAssertEqual(0, NameManager.shared.getAllNames().count, "We have some names already")
-
-        NameManager.shared.add(name: "Eric")
-        NameManager.shared.add(name: "Greg")
-        NameManager.shared.add(name: "Lori")
-        XCTAssertEqual(3, NameManager.shared.getAllNames().count, "Incorrect number of names.")
-
-        NameManager.shared.remove(name: "Greg")
-        XCTAssertEqual(2, NameManager.shared.getAllNames().count, "Incorrect number of names after deleting Greg")
-        XCTAssertEqual(["Eric", "Lori"], NameManager.shared.getAllNames())
-
-        NameManager.shared.remove(index: 0)
-        XCTAssertEqual(1, NameManager.shared.getAllNames().count, "Incorrect number of names after deleting index 0")
-        XCTAssertEqual(["Lori"], NameManager.shared.getAllNames())
-
-        NameManager.shared.remove(index: 0)
-        XCTAssertEqual(0, NameManager.shared.getAllNames().count, "Incorrect number of names after deleting index 0")
-        XCTAssertEqual([], NameManager.shared.getAllNames())
+extension UserDefaults {
+    static var newTestInstance: UserDefaults {
+        UserDefaults(suiteName: "test-\(UUID().uuidString)")!
     }
 }

@@ -21,14 +21,19 @@ protocol NameManaging {
  * This class is responsible for managing the list of people
  */
 class NameManager {
-    static let shared = NameManager()
+    static let shared = NameManager(with: .standard)
+    let defaults: UserDefaults
+
+    init(with defaults: UserDefaults) {
+        self.defaults = defaults
+    }
 
     fileprivate var names: [String] {
         get {
-            return UserDefaults.standard.array(forKey: "names") as? [String] ?? [String]()
+            return defaults.array(forKey: "names") as? [String] ?? [String]()
         }
         set {
-            UserDefaults.standard.set(newValue.sorted(), forKey: "names")
+            defaults.set(newValue.sorted(), forKey: "names")
         }
     }
 }

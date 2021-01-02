@@ -29,8 +29,7 @@ extension MatchupManagerTest {
         for _ in 0..<100 {
             let names = [ "Bob", "Mary", "Jane", "Eric", "Homer", "Marge", "Bart" ]
             MatchupManager.shared.names = names
-            MatchupManager.shared.randomize()
-            let assignments = MatchupManager.shared.randomMatchup
+            let assignments = MatchupManager.shared.randomize()
 
             for key in assignments.keys {
                 XCTAssertNotEqual(key, assignments[key], "\(key) was assigned to themselves")

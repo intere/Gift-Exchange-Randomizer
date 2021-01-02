@@ -94,15 +94,14 @@ extension RandomizeNamesTableViewController {
 
 // MARK: - Helper functions
 
-fileprivate extension RandomizeNamesTableViewController {
+private extension RandomizeNamesTableViewController {
     
     func randomizeMatchup() {
         names = NameManager.shared.getAllNames()
         AlertHelper.checkRandomizeMatchup(names: names, parentVC: self) { (success: Bool) in
             if success {
                 MatchupManager.shared.names = names
-                MatchupManager.shared.randomize()
-                matchups = MatchupManager.shared.randomMatchup
+                matchups = MatchupManager.shared.randomize()
                 tableView.reloadData()
             }
         }

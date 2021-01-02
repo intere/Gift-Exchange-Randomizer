@@ -8,6 +8,15 @@
 
 import Foundation
 
+protocol NameManaging {
+    func getAllNames() -> [String]
+    func add(name person: String)
+    func remove(index row: Int)
+    func remove(name person: String)
+    func clear()
+    func row(forName name: String) -> Int?
+}
+
 /**
  * This class is responsible for managing the list of people
  */
@@ -24,9 +33,9 @@ class NameManager {
     }
 }
 
-// MARK: - API
+// MARK: - NameManaging
 
-extension NameManager {
+extension NameManager: NameManaging {
 
     // Gets you the list of names
     func getAllNames() -> [String] {
@@ -72,8 +81,3 @@ extension NameManager {
 
 }
 
-// MARK: - Helpers
-
-fileprivate extension NameManager {
-
-}

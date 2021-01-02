@@ -8,6 +8,12 @@
 
 import Foundation
 
+protocol MatchupManaging {
+    var names: [String] { get set }
+    var randomMatchup: [String: String] { get }
+    func randomize() -> [String: String]
+}
+
 /**
  This class is responsible for taking a list of names and creating a random matchup of who buys a gift for who.
  The way you use this manager is by doing the following:
@@ -33,10 +39,22 @@ class MatchupManager {
 
 // MARK: - API
 
-extension MatchupManager {
+extension MatchupManager: MatchupManaging {
 
     /** This function is responsible for creating the random matchup.  */
-    func randomize() {
+    func randomize() -> [String: String] {
+        helpRandomize()
+
+        return randomMatchup
+    }
+
+}
+
+// MARK: - Helpers
+
+private extension MatchupManager {
+
+    func helpRandomize() {
         guard names.count > 0 else {
             randomMatchup = [:]
             return
@@ -44,20 +62,14 @@ extension MatchupManager {
         var unassigned = names
         randomMatchup = [:]
 
-        for assignName in names {
+        names.forEach { assignName in
             guard let index = pickRandomName(assignTo: assignName, unassignedNames: unassigned) else {
-                randomize()
+                helpRandomize()
                 return
             }
             randomMatchup[assignName] = unassigned.remove(at: index)
         }
     }
-
-}
-
-// MARK: - Helpers
-
-fileprivate extension MatchupManager {
 
     /** 
      Returns the index of the unassigned name to pick for the assign to name, unless the unassigned name has only one row left, and it's the same as the assignTo name, if that's the case, then return nil.

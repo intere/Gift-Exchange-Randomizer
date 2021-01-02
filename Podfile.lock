@@ -7,17 +7,25 @@ PODS:
   - AppCenter/Core (4.1.0)
   - AppCenter/Crashes (4.1.0):
     - AppCenter/Core
+  - Nimble (9.0.0)
+  - Quick (3.0.0)
 
 DEPENDENCIES:
   - AppCenter
+  - Nimble
+  - Quick
 
 SPEC REPOS:
   trunk:
     - AppCenter
+    - Nimble
+    - Quick
 
 SPEC CHECKSUMS:
   AppCenter: 8832b158d17e54845c3b88a91076218f0b07174d
+  Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
+  Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
 
-PODFILE CHECKSUM: c218f760fe7ecc90a20bc78fd07b6c13c6306cc7
+PODFILE CHECKSUM: 38df87ca9bcb76798ed89025c180b6f865af4360
 
 COCOAPODS: 1.10.0

@@ -8,8 +8,21 @@
 
 import AppCenterAnalytics
 
-class AnalyticsManager {
-    static let shared = AnalyticsManager()
+protocol AnalyticsManaging {
+    /// Tracks that a screen has been viewed.
+    ///
+    /// - Parameter named: The name of the screen that was viewed.
+    func trackScreen(named: String)
+
+    /// Tracks that the "Randomize" button was tapped.
+    func trackTappedRandomized()
+
+    /// Tracks that the "Reset" button was tapped.
+    func trackTappedReset()
+}
+
+class AnalyticsManager: AnalyticsManaging {
+    static let shared: AnalyticsManaging = AnalyticsManager()
 
     /// Tracks that a screen has been viewed.
     ///

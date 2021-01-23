@@ -6,21 +6,59 @@
 //  Copyright © 2016 Willis Programming. All rights reserved.
 //
 
+import Cartography
 import UIKit
 
 class MainTableViewController: UITableViewController {
 
+    let analytics: AnalyticsManaging
+    let nameManager: NameManaging
+
+    init(analytics: AnalyticsManaging, nameManager: NameManaging) {
+        self.analytics = analytics
+        self.nameManager = nameManager
+        super.init(style: .plain)
+        tableView.separatorStyle = .none
+        view.backgroundColor = .clear
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         tableView.estimatedRowHeight = 60
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "NamesCell")
+        tableView.register(NameTableViewCell.self, forCellReuseIdentifier: "NameCell")
+        tableView.register(EnterNameTableViewCell.self, forCellReuseIdentifier: "AddNameCell")
+        tableView.register(ButtonTableViewCell.self, forCellReuseIdentifier: "ButtonsCell")
+
+        let headerView = UIView()
+        let logoView = UIImageView(image: UIImage(named: "GiftExchangeLogo"))
+        logoView.contentMode = .scaleAspectFit
+
+        headerView.addSubview(logoView)
+        constrain(headerView, logoView) { (view, logoView) in
+            logoView.top == view.top + 8
+            logoView.left == view.safeAreaLayoutGuide.left + 24
+            logoView.bottom == view.bottom - 8
+            logoView.right == view.safeAreaLayoutGuide.right - 24
+            logoView.height == 140
+        }
+
+        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 156)
+
+        tableView.tableHeaderView = headerView
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         registerForListeners()
 
-        AnalyticsManager.shared.trackScreen(named: "Main")
+        analytics.trackScreen(named: "Main")
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -32,21 +70,11 @@ class MainTableViewController: UITableViewController {
 
 }
 
-// MARK: - notifications
+// MARK: - NameAddedDelegate
 
-extension MainTableViewController {
+extension MainTableViewController: NameAddedDelegate {
 
-    @objc
-    func newNameAdded(_ notification: NSNotification) {
-        guard let userInfo = notification.userInfo else {
-            // TODO: Log an error
-            return
-        }
-        guard let name = userInfo["name"] as? String, name != "" else {
-            // TODO: Log an error that there was no name provided back
-            return
-        }
-
+    func added(name: String) {
         NameManager.shared.add(name: name)
 
         if let indexPath = indexPathForName(name: name) {
@@ -57,6 +85,12 @@ extension MainTableViewController {
             tableView.reloadData()
         }
     }
+
+}
+
+// MARK: - notifications
+
+extension MainTableViewController {
 
     @objc
     func resetAction(_ notification: NSNotification) {
@@ -97,23 +131,28 @@ extension MainTableViewController {
 
         switch indexPath.section {
         case 0:
-            return tableView.dequeueReusableCell(withIdentifier: "NamesCell", for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: "NamesCell", for: indexPath).namesTextCell
 
         case 1:
-            return tableView.dequeueReusableCell(withIdentifier: "AddNameCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AddNameCell", for: indexPath).clearBackground
+            guard let enterNameCell = cell as? EnterNameTableViewCell else {
+                return cell
+            }
+            enterNameCell.delegate = self
+            return enterNameCell
 
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath).clearBackground
             if let nameCell = cell as? NameTableViewCell {
                 nameCell.name = NameManager.shared.getAllNames()[indexPath.row]
             }
             return cell
 
         case 3:
-            return tableView.dequeueReusableCell(withIdentifier: "ButtonsCell", for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: "ButtonsCell", for: indexPath).clearBackground
 
         default:
-            return tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: "", for: indexPath).clearBackground
         }
     }
 
@@ -158,7 +197,7 @@ extension MainTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == "showRandomizeTableSegue" {
-            AnalyticsManager.shared.trackTappedRandomized()
+            analytics.trackTappedRandomized()
         }
     }
 }
@@ -170,7 +209,6 @@ fileprivate extension MainTableViewController {
 
     func registerForListeners() {
         let listenerMap = [
-            "NewName": #selector(newNameAdded(_:)),
             "ResetAction": #selector(resetAction(_:)),
         ]
 
@@ -190,4 +228,35 @@ fileprivate extension MainTableViewController {
         return IndexPath(row: row, section: 2)
     }
 
+}
+
+// MARK - UITableViewCell.clear
+
+extension UITableViewCell {
+
+    /// Clears the background color and returns a reference to self
+    var clearBackground: UITableViewCell {
+        backgroundColor = .clear
+        return self
+    }
+
+    var namesTextCell: UITableViewCell {
+        guard let imageView = imageView else {
+            return clearBackground
+        }
+
+        imageView.image = UIImage(named: "EnterYourNames")
+        imageView.contentMode = .scaleAspectFit
+
+
+        constrain(self, imageView) { (view, imageView) in
+            imageView.centerX == view.centerX
+            imageView.top == view.top
+            imageView.bottom == view.bottom
+            imageView.left == view.left
+            imageView.right == view.right
+        }
+
+        return clearBackground
+    }
 }

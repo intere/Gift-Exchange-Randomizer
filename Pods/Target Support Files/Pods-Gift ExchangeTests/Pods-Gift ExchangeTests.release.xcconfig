@@ -1,10 +1,10 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$(PLATFORM_DIR)/Developer/Library/Frameworks" "${PODS_CONFIGURATION_BUILD_DIR}/Nimble" "${PODS_CONFIGURATION_BUILD_DIR}/Quick" "${PODS_ROOT}/AppCenter/AppCenter-SDK-Apple" "${PODS_XCFRAMEWORKS_BUILD_DIR}/AppCenter" "${PODS_XCFRAMEWORKS_BUILD_DIR}/AppCenterAnalytics" "${PODS_XCFRAMEWORKS_BUILD_DIR}/AppCenterCrashes"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$(PLATFORM_DIR)/Developer/Library/Frameworks" "${PODS_CONFIGURATION_BUILD_DIR}/Cartography" "${PODS_CONFIGURATION_BUILD_DIR}/Nimble" "${PODS_CONFIGURATION_BUILD_DIR}/Quick" "${PODS_ROOT}/AppCenter/AppCenter-SDK-Apple" "${PODS_XCFRAMEWORKS_BUILD_DIR}/AppCenter" "${PODS_XCFRAMEWORKS_BUILD_DIR}/AppCenterAnalytics" "${PODS_XCFRAMEWORKS_BUILD_DIR}/AppCenterCrashes"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Nimble/Nimble.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Quick/Quick.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Cartography/Cartography.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Nimble/Nimble.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Quick/Quick.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -l"c++" -l"sqlite3" -l"z" -framework "CoreTelephony" -framework "Foundation" -framework "Nimble" -framework "Quick" -framework "SystemConfiguration" -framework "UIKit" -framework "XCTest" -weak_framework "XCTest"
+OTHER_LDFLAGS = $(inherited) -l"c++" -l"sqlite3" -l"z" -framework "Cartography" -framework "CoreTelephony" -framework "Foundation" -framework "Nimble" -framework "Quick" -framework "SystemConfiguration" -framework "UIKit" -framework "XCTest" -weak_framework "XCTest"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

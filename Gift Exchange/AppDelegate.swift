@@ -21,8 +21,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             withAppSecret: "d45c306c-2a11-4d8a-a916-ff3932da9640",
             services: [Analytics.self, Crashes.self]
         )
+        window = buildAndConfigureAppDelegateWindow()
         return true
     }
 
 }
 
+// MARK: - Implementation
+
+private extension AppDelegate {
+
+    func buildAndConfigureAppDelegateWindow() -> UIWindow {
+        let nameManager = NameManager(with: .standard)
+
+        #warning("Remove this next block")
+        nameManager.clear()
+        nameManager.add(name: "Greg")
+        nameManager.add(name: "Lori")
+        nameManager.add(name: "Eric")
+        #warning("End remove")
+
+        let viewController = StyledParentViewController(
+            childViewController:
+                MainTableViewController(
+                    analytics: AnalyticsManager(),
+                    nameManager: nameManager
+                ),
+            image: UIImage(named: "backdrop"),
+            statusBarImage: UIImage(named: "candycane")
+        )
+        
+        let navigationViewController = UINavigationController(rootViewController: viewController)
+
+        let window = UIWindow()
+        window.rootViewController = navigationViewController
+        window.makeKeyAndVisible()
+
+        return window
+    }
+
+}

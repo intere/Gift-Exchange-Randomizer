@@ -8,28 +8,29 @@
 
 import Foundation
 
-protocol MatchupManaging {
+/**
+ Implementer is responsible for taking a list of names and creating a random matchup of who buys a gift for who.
+ The way you use this manager is by doing the following:
+ 1.  Set the list of names:
+ ```
+ MatchupManager.shared.names = [ "Bob", "John", "Sue", "Lindsay", "Ralph" ]
+ ```
+ 2.  Call the randomize function:
+ ```
+ let matchup = MatchupManager.shared.randomize()
+ ```
+ 3.  Later on, you can get the randomized list again if need be:
+ ```
+ let whatWasThatMatchup = MatchupManager.shared.randomMatchup
+ ```
+ */protocol MatchupManaging {
     var names: [String] { get set }
     var randomMatchup: [String: String] { get }
     func randomize() -> [String: String]
 }
 
-/**
- This class is responsible for taking a list of names and creating a random matchup of who buys a gift for who.
- The way you use this manager is by doing the following:
- 1.  Set the list of names:  
- ```
- MatchupManager.shared.names = [ "Bob", "John", "Sue", "Lindsay", "Ralph" ]
- ```
- 2.  Call the randomize function: 
- ```
- MatchupManager.shared.randomize()
- ```
- 3.  Get the randomized Name Assignments: 
- ```
- let matchup = MatchupManager.shared.randomMatchup
- ```
- */
+// MARK: - MatchupManager
+
 class MatchupManager {
     static let shared = MatchupManager()
 

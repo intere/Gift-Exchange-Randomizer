@@ -36,6 +36,7 @@ class MainTableViewController: UITableViewController {
         super.viewDidLoad()
 
         tableView.estimatedRowHeight = 60
+        tableView.allowsSelection = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "NamesCell")
         tableView.register(NameTableViewCell.self, forCellReuseIdentifier: "NameCell")
@@ -99,7 +100,7 @@ extension MainTableViewController: ButtonsCellDelegate {
     }
 
     func tappedRandomize() {
-        analytics.trackTappedRandomized()
+        analytics.trackTappedRandomize()
         let names = nameManager.getAllNames()
         AlertHelper.checkRandomizeMatchup(names: names, parentVC: self) { (success: Bool) in
             guard success else {
@@ -204,28 +205,6 @@ extension MainTableViewController {
 
 }
 
-// MARK: - Navigation
-
-extension MainTableViewController {
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        let names = nameManager.getAllNames()
-        var result = false
-        AlertHelper.checkRandomizeMatchup(names: names, parentVC: self) { (success: Bool) in
-            result = success
-        }
-        return result
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        if segue.identifier == "showRandomizeTableSegue" {
-            analytics.trackTappedRandomized()
-        }
-    }
-}
-
-
 // MARK: - Helper functions
 
 private extension MainTableViewController {
@@ -238,33 +217,4 @@ private extension MainTableViewController {
         return IndexPath(row: row, section: 2)
     }
 
-}
-
-// MARK - UITableViewCell.clear
-
-extension UITableViewCell {
-
-    /// Clears the background color and returns a reference to self
-    var clearBackground: UITableViewCell {
-        backgroundColor = .clear
-        return self
-    }
-
-    var namesTextCell: UITableViewCell {
-        guard let imageView = imageView else {
-            return clearBackground
-        }
-
-        imageView.image = UIImage(named: "EnterYourNames")
-        imageView.contentMode = .scaleAspectFit
-
-        constrain(self, imageView) { (view, imageView) in
-            imageView.centerX == view.centerX
-            imageView.top == view.top
-            imageView.bottom == view.bottom
-            imageView.width == 250
-        }
-
-        return clearBackground
-    }
 }

@@ -15,7 +15,7 @@ protocol AnalyticsManaging {
     func trackScreen(named: String)
 
     /// Tracks that the "Randomize" button was tapped.
-    func trackTappedRandomized()
+    func trackTappedRandomize()
 
     /// Tracks that the "Reset" button was tapped.
     func trackTappedReset()
@@ -31,7 +31,7 @@ class AnalyticsManager: AnalyticsManaging {
     }
 
     /// Tracks that the "Randomize" button was tapped.
-    func trackTappedRandomized() {
+    func trackTappedRandomize() {
         Analytics.trackEvent("randomized")
     }
 

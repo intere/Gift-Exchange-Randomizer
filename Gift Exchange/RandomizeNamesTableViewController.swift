@@ -36,6 +36,7 @@ class RandomizeNamesTableViewController: UITableViewController {
         view.backgroundColor = .clear
         randomizeMatchup()
         tableView.estimatedRowHeight = 60
+        tableView.allowsSelection = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(NameTableViewCell.self, forCellReuseIdentifier: "NameCell")
         tableView.register(RandomizeButtonTableViewCell.self, forCellReuseIdentifier: "RandomizeCell")
@@ -73,7 +74,7 @@ extension RandomizeNamesTableViewController {
 extension RandomizeNamesTableViewController: RandomizeCellDelegate {
 
     func tappedRandomize() {
-        analyticsManager.trackTappedRandomized()
+        analyticsManager.trackTappedRandomize()
         randomizeMatchup()
     }
 }

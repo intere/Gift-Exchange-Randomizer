@@ -11,6 +11,12 @@
 		36562E9C21A1115100C97B57 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36562E9B21A1115100C97B57 /* AnalyticsManager.swift */; };
 		36A73D6925BC6EE9004D8243 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A73D6825BC6EE9004D8243 /* TextField.swift */; };
 		36A73D6E25BC8EDB004D8243 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A73D6D25BC8EDB004D8243 /* UIColorExtensions.swift */; };
+		36AE5C6625BDEB1C004DECEE /* MockNameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE5C6525BDEB1C004DECEE /* MockNameManager.swift */; };
+		36AE5C6C25BDF1F6004DECEE /* MockProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE5C6B25BDF1F6004DECEE /* MockProtocol.swift */; };
+		36AE5C7125BDF2E7004DECEE /* MainTableViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE5C7025BDF2E7004DECEE /* MainTableViewControllerSpec.swift */; };
+		36AE5C7725BDF34B004DECEE /* MockAnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE5C7625BDF34B004DECEE /* MockAnalyticsManager.swift */; };
+		36AE5C7B25BDF420004DECEE /* MockMatchupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE5C7A25BDF420004DECEE /* MockMatchupManager.swift */; };
+		36AE5C7F25BDF99F004DECEE /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE5C7E25BDF99F004DECEE /* UITableViewCellExtensions.swift */; };
 		36B3F5DE1DCD6C6800EED2D8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3F5DD1DCD6C6800EED2D8 /* RootViewController.swift */; };
 		36B3F5E01DCD6CD200EED2D8 /* RandomizeNamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3F5DF1DCD6CD200EED2D8 /* RandomizeNamesTableViewController.swift */; };
 		36B3F5E21DCD701100EED2D8 /* RandomizeButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3F5E11DCD701100EED2D8 /* RandomizeButtonTableViewCell.swift */; };
@@ -44,6 +50,12 @@
 		36562E9B21A1115100C97B57 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		36A73D6825BC6EE9004D8243 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		36A73D6D25BC8EDB004D8243 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		36AE5C6525BDEB1C004DECEE /* MockNameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNameManager.swift; sourceTree = "<group>"; };
+		36AE5C6B25BDF1F6004DECEE /* MockProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProtocol.swift; sourceTree = "<group>"; };
+		36AE5C7025BDF2E7004DECEE /* MainTableViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewControllerSpec.swift; sourceTree = "<group>"; };
+		36AE5C7625BDF34B004DECEE /* MockAnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAnalyticsManager.swift; sourceTree = "<group>"; };
+		36AE5C7A25BDF420004DECEE /* MockMatchupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMatchupManager.swift; sourceTree = "<group>"; };
+		36AE5C7E25BDF99F004DECEE /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
 		36B3F5DD1DCD6C6800EED2D8 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		36B3F5DF1DCD6CD200EED2D8 /* RandomizeNamesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomizeNamesTableViewController.swift; sourceTree = "<group>"; };
 		36B3F5E11DCD701100EED2D8 /* RandomizeButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomizeButtonTableViewCell.swift; sourceTree = "<group>"; };
@@ -104,8 +116,28 @@
 			isa = PBXGroup;
 			children = (
 				36A73D6D25BC8EDB004D8243 /* UIColorExtensions.swift */,
+				36AE5C7E25BDF99F004DECEE /* UITableViewCellExtensions.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		36AE5C6425BDEB0D004DECEE /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				36AE5C6525BDEB1C004DECEE /* MockNameManager.swift */,
+				36AE5C6B25BDF1F6004DECEE /* MockProtocol.swift */,
+				36AE5C7625BDF34B004DECEE /* MockAnalyticsManager.swift */,
+				36AE5C7A25BDF420004DECEE /* MockMatchupManager.swift */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
+		36AE5C6F25BDF2B1004DECEE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				36AE5C7025BDF2E7004DECEE /* MainTableViewControllerSpec.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		36B3F5E31DCD717A00EED2D8 /* Managers */ = {
@@ -189,6 +221,8 @@
 		8973CE221DB592E600CC3DE4 /* Gift ExchangeTests */ = {
 			isa = PBXGroup;
 			children = (
+				36AE5C6F25BDF2B1004DECEE /* ViewControllers */,
+				36AE5C6425BDEB0D004DECEE /* Mocks */,
 				36B3F5E61DCD75AD00EED2D8 /* Managers */,
 				8973CE251DB592E600CC3DE4 /* Info.plist */,
 			);
@@ -421,6 +455,7 @@
 				36B3F5E01DCD6CD200EED2D8 /* RandomizeNamesTableViewController.swift in Sources */,
 				36F7D87425A219C2008BEEBD /* StyledParentViewController.swift in Sources */,
 				36562E9C21A1115100C97B57 /* AnalyticsManager.swift in Sources */,
+				36AE5C7F25BDF99F004DECEE /* UITableViewCellExtensions.swift in Sources */,
 				36B3F5DE1DCD6C6800EED2D8 /* RootViewController.swift in Sources */,
 				36C45E6B1DCE3D6C00E87710 /* MatchupManager.swift in Sources */,
 				36B3F5E51DCD718C00EED2D8 /* NameManager.swift in Sources */,
@@ -433,7 +468,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				36B3F5E81DCD75BD00EED2D8 /* NameManagerTest.swift in Sources */,
+				36AE5C7B25BDF420004DECEE /* MockMatchupManager.swift in Sources */,
+				36AE5C6C25BDF1F6004DECEE /* MockProtocol.swift in Sources */,
+				36AE5C6625BDEB1C004DECEE /* MockNameManager.swift in Sources */,
 				36C45E6D1DCE419F00E87710 /* MatchupManagerTest.swift in Sources */,
+				36AE5C7725BDF34B004DECEE /* MockAnalyticsManager.swift in Sources */,
+				36AE5C7125BDF2E7004DECEE /* MainTableViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -34,13 +34,6 @@ private extension AppDelegate {
     func buildAndConfigureAppDelegateWindow() -> UIWindow {
         let nameManager = NameManager(with: .standard)
 
-        #warning("Remove this next block")
-        nameManager.clear()
-        nameManager.add(name: "Greg")
-        nameManager.add(name: "Lori")
-        nameManager.add(name: "Eric")
-        #warning("End remove")
-
         let mainVC = MainTableViewController(
             analytics: AnalyticsManager(),
             nameManager: nameManager

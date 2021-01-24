@@ -13,17 +13,18 @@ import Foundation
  The way you use this manager is by doing the following:
  1.  Set the list of names:
  ```
- MatchupManager.shared.names = [ "Bob", "John", "Sue", "Lindsay", "Ralph" ]
+ matchupManager.names = [ "Bob", "John", "Sue", "Lindsay", "Ralph" ]
  ```
  2.  Call the randomize function:
  ```
- let matchup = MatchupManager.shared.randomize()
+ let matchup = matchupManager.randomize()
  ```
  3.  Later on, you can get the randomized list again if need be:
  ```
- let whatWasThatMatchup = MatchupManager.shared.randomMatchup
+ let whatWasThatMatchup = matchupManager.randomMatchup
  ```
- */protocol MatchupManaging {
+ */
+protocol MatchupManaging: class {
     var names: [String] { get set }
     var randomMatchup: [String: String] { get }
     func randomize() -> [String: String]
@@ -32,8 +33,6 @@ import Foundation
 // MARK: - MatchupManager
 
 class MatchupManager {
-    static let shared = MatchupManager()
-
     var names = [String]()
     var randomMatchup = [String: String]()
 }

@@ -13,14 +13,16 @@ class MainTableViewController: UITableViewController {
 
     let analytics: AnalyticsManaging
     let nameManager: NameManaging
+    let matchupManager: MatchupManaging
 
     override var navigationController: UINavigationController? {
         return super.navigationController ?? parent?.navigationController
     }
 
-    init(analytics: AnalyticsManaging, nameManager: NameManaging) {
+    init(analytics: AnalyticsManaging, nameManager: NameManaging, matchupManager: MatchupManaging) {
         self.analytics = analytics
         self.nameManager = nameManager
+        self.matchupManager = matchupManager
         super.init(style: .plain)
         tableView.separatorStyle = .none
         view.backgroundColor = .clear
@@ -73,7 +75,7 @@ class MainTableViewController: UITableViewController {
 extension MainTableViewController: NameAddedDelegate {
 
     func added(name: String) {
-        NameManager.shared.add(name: name)
+        nameManager.add(name: name)
 
         if let indexPath = indexPathForName(name: name) {
             tableView.beginUpdates()
@@ -91,18 +93,25 @@ extension MainTableViewController: NameAddedDelegate {
 extension MainTableViewController: ButtonsCellDelegate {
 
     func tappedReset() {
-        NameManager.shared.clear()
+        analytics.trackTappedReset()
+        nameManager.clear()
         tableView.reloadData()
     }
 
     func tappedRandomize() {
-        let names = NameManager.shared.getAllNames()
+        analytics.trackTappedRandomized()
+        let names = nameManager.getAllNames()
         AlertHelper.checkRandomizeMatchup(names: names, parentVC: self) { (success: Bool) in
             guard success else {
                 return
             }
 
-            let randomizeVC = RandomizeNamesTableViewController.newStyledInstance(with: names)
+            let randomizeVC = RandomizeNamesTableViewController.newStyledInstance(
+                with: names,
+                analyticsManager: analytics,
+                matchupManager: matchupManager,
+                nameManager: nameManager
+            )
             navigationController?.pushViewController(randomizeVC, animated: true)
         }
     }
@@ -126,7 +135,7 @@ extension MainTableViewController {
             return 1
 
         case 2:
-            return NameManager.shared.getAllNames().count
+            return nameManager.getAllNames().count
 
         case 3:
             return 1
@@ -153,7 +162,7 @@ extension MainTableViewController {
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath).clearBackground
             if let nameCell = cell as? NameTableViewCell {
-                nameCell.name = NameManager.shared.getAllNames()[indexPath.row]
+                nameCell.name = nameManager.getAllNames()[indexPath.row]
             }
             return cell
 
@@ -185,7 +194,7 @@ extension MainTableViewController {
 
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            NameManager.shared.remove(index: indexPath.row)
+            self.nameManager.remove(index: indexPath.row)
             tableView.endUpdates()
 
         }
@@ -200,7 +209,7 @@ extension MainTableViewController {
 extension MainTableViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        let names = NameManager.shared.getAllNames()
+        let names = nameManager.getAllNames()
         var result = false
         AlertHelper.checkRandomizeMatchup(names: names, parentVC: self) { (success: Bool) in
             result = success
@@ -222,7 +231,7 @@ extension MainTableViewController {
 private extension MainTableViewController {
 
     func indexPathForName(name: String) -> IndexPath? {
-        guard let row = NameManager.shared.row(forName: name) else {
+        guard let row = nameManager.row(forName: name) else {
             return nil
         }
 

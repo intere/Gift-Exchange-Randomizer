@@ -22,7 +22,6 @@ protocol AnalyticsManaging {
 }
 
 class AnalyticsManager: AnalyticsManaging {
-    static let shared: AnalyticsManaging = AnalyticsManager()
 
     /// Tracks that a screen has been viewed.
     ///

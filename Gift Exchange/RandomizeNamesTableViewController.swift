@@ -10,11 +10,26 @@ import UIKit
 
 class RandomizeNamesTableViewController: UITableViewController {
 
+    let analyticsManager: AnalyticsManaging
+    let matchupManager: MatchupManaging
+    let nameManager: NameManaging
+
     // Ordered list of names
     var names = [String]()
 
     // Who is assigned to who
     var matchups = [String: String]()
+
+    init(analyticsManager: AnalyticsManaging, matchupManager: MatchupManaging, nameManager: NameManaging) {
+        self.analyticsManager = analyticsManager
+        self.matchupManager = matchupManager
+        self.nameManager = nameManager
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +45,7 @@ class RandomizeNamesTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        AnalyticsManager.shared.trackScreen(named: "Randomize Names")
+        analyticsManager.trackScreen(named: "Randomize Names")
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -44,9 +59,9 @@ class RandomizeNamesTableViewController: UITableViewController {
 
 extension RandomizeNamesTableViewController {
 
-    static func newStyledInstance(with names: [String]) -> StyledParentViewController {
+    static func newStyledInstance(with names: [String], analyticsManager: AnalyticsManaging, matchupManager: MatchupManaging, nameManager: NameManaging) -> StyledParentViewController {
 
-        let childVC = RandomizeNamesTableViewController()
+        let childVC = RandomizeNamesTableViewController(analyticsManager: analyticsManager, matchupManager: matchupManager, nameManager: nameManager)
         childVC.names = names
 
         return StyledParentViewController.newInstance(withChild: childVC)
@@ -58,6 +73,7 @@ extension RandomizeNamesTableViewController {
 extension RandomizeNamesTableViewController: RandomizeCellDelegate {
 
     func tappedRandomize() {
+        analyticsManager.trackTappedRandomized()
         randomizeMatchup()
     }
 }
@@ -114,13 +130,13 @@ extension RandomizeNamesTableViewController {
 private extension RandomizeNamesTableViewController {
     
     func randomizeMatchup() {
-        names = NameManager.shared.getAllNames()
+        names = nameManager.getAllNames()
         AlertHelper.checkRandomizeMatchup(names: names, parentVC: self) { (success: Bool) in
             guard success else {
                 return
             }
-            MatchupManager.shared.names = names
-            matchups = MatchupManager.shared.randomize()
+            matchupManager.names = names
+            matchups = matchupManager.randomize()
             tableView.reloadData()
         }
     }

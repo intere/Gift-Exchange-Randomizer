@@ -29,7 +29,6 @@ class RandomizeButtonTableViewCell: UITableViewCell {
 
     @IBAction
     func randomizePressed(_ source: Any) {
-        AnalyticsManager.shared.trackTappedRandomized()
         delegate?.tappedRandomize()
     }
 
@@ -46,7 +45,6 @@ private extension RandomizeButtonTableViewCell {
         contentView.addSubview(randomizeButton)
 
         constrain(contentView, randomizeButton) { (view, randomizeButton) in
-
             randomizeButton.height == 50
             randomizeButton.width == 100
 

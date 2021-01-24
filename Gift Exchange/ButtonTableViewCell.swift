@@ -37,13 +37,11 @@ extension ButtonTableViewCell {
 
     @IBAction
     func tappedRandomize(_ source: Any) {
-        AnalyticsManager.shared.trackTappedRandomized()
         delegate?.tappedRandomize()
     }
 
     @IBAction
     func tappedReset(_ source: Any) {
-        AnalyticsManager.shared.trackTappedReset()
         delegate?.tappedReset()
     }
 }

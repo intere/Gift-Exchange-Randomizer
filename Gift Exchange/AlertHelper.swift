@@ -14,13 +14,13 @@ class AlertHelper {
     
     static func popNotEnoughNameUpWarning(parentVC: UIViewController) {
         let alert = UIAlertController(title: "Try Again", message: "Enter at least three names", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         parentVC.present(alert, animated: true, completion: nil)
     }
     
     static func popDuplicateNameWarning(parentVC: UIViewController) {
         let alert = UIAlertController(title: "Try Again", message: "Names must be different", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         parentVC.present(alert, animated: true, completion: nil)
     }
 

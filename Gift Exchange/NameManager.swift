@@ -21,7 +21,6 @@ protocol NameManaging {
  * This class is responsible for managing the list of people
  */
 class NameManager {
-    static let shared = NameManager(with: .standard)
     let defaults: UserDefaults
 
     init(with defaults: UserDefaults) {

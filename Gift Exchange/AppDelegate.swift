@@ -33,10 +33,12 @@ private extension AppDelegate {
 
     func buildAndConfigureAppDelegateWindow() -> UIWindow {
         let nameManager = NameManager(with: .standard)
+        let matchupManager = MatchupManager()
 
         let mainVC = MainTableViewController(
             analytics: AnalyticsManager(),
-            nameManager: nameManager
+            nameManager: nameManager,
+            matchupManager: matchupManager
         )
 
         let viewController = StyledParentViewController.newInstance(withChild: mainVC)

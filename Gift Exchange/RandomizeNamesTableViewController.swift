@@ -18,16 +18,18 @@ class RandomizeNamesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .clear
         randomizeMatchup()
         tableView.estimatedRowHeight = 60
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(NameTableViewCell.self, forCellReuseIdentifier: "NameCell")
+        tableView.register(RandomizeButtonTableViewCell.self, forCellReuseIdentifier: "RandomizeCell")
+        tableView.separatorStyle = .none
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(userClickedRandomize(_:)), name: NSNotification.Name("RandomizeAction"), object: nil)
-
         AnalyticsManager.shared.trackScreen(named: "Randomize Names")
     }
 
@@ -38,15 +40,26 @@ class RandomizeNamesTableViewController: UITableViewController {
 
 }
 
-// MARK: - Notification Actions
+// MARK: - API
 
 extension RandomizeNamesTableViewController {
 
-    @objc
-    func userClickedRandomize(_ notification: NSNotification) {
+    static func newStyledInstance(with names: [String]) -> StyledParentViewController {
+
+        let childVC = RandomizeNamesTableViewController()
+        childVC.names = names
+
+        return StyledParentViewController.newInstance(withChild: childVC)
+    }
+}
+
+// MARK: - RandomizeCellDelegate
+
+extension RandomizeNamesTableViewController: RandomizeCellDelegate {
+
+    func tappedRandomize() {
         randomizeMatchup()
     }
-
 }
 
 // MARK: - Table view data source
@@ -74,7 +87,7 @@ extension RandomizeNamesTableViewController {
 
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath).clearBackground
             let name = names[indexPath.row]
 
             if let nameCell = cell as? NameTableViewCell, let buyFor = matchups[name] {
@@ -82,8 +95,12 @@ extension RandomizeNamesTableViewController {
             }
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "RandomizeCell", for: indexPath)
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RandomizeCell", for: indexPath).clearBackground
+            guard let randomizeCell = cell as? RandomizeButtonTableViewCell else {
+                return cell
+            }
+            randomizeCell.delegate = self
+            return randomizeCell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
             return cell
@@ -99,11 +116,12 @@ private extension RandomizeNamesTableViewController {
     func randomizeMatchup() {
         names = NameManager.shared.getAllNames()
         AlertHelper.checkRandomizeMatchup(names: names, parentVC: self) { (success: Bool) in
-            if success {
-                MatchupManager.shared.names = names
-                matchups = MatchupManager.shared.randomize()
-                tableView.reloadData()
+            guard success else {
+                return
             }
+            MatchupManager.shared.names = names
+            matchups = MatchupManager.shared.randomize()
+            tableView.reloadData()
         }
     }
 }

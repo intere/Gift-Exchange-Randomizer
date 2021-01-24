@@ -29,6 +29,7 @@ class StyledParentViewController: UIViewController {
         backgroundView = UIImageView(image: image)
         statusBarView = UIImageView(image: statusBarImage)
         super.init(nibName: nil, bundle: nil)
+        addChild(childViewController)
     }
 
     required init?(coder: NSCoder) {
@@ -66,4 +67,19 @@ class StyledParentViewController: UIViewController {
 
         childViewController.didMove(toParent: self)
     }
+}
+
+// MARK: - API
+
+extension StyledParentViewController {
+
+    static func newInstance(withChild childVC: UIViewController) -> StyledParentViewController {
+
+        StyledParentViewController(
+            childViewController: childVC,
+            image: UIImage(named: "backdrop"),
+            statusBarImage: UIImage(named: "candycane")
+        )
+    }
+
 }

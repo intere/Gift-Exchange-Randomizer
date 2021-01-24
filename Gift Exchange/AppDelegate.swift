@@ -41,15 +41,12 @@ private extension AppDelegate {
         nameManager.add(name: "Eric")
         #warning("End remove")
 
-        let viewController = StyledParentViewController(
-            childViewController:
-                MainTableViewController(
-                    analytics: AnalyticsManager(),
-                    nameManager: nameManager
-                ),
-            image: UIImage(named: "backdrop"),
-            statusBarImage: UIImage(named: "candycane")
+        let mainVC = MainTableViewController(
+            analytics: AnalyticsManager(),
+            nameManager: nameManager
         )
+
+        let viewController = StyledParentViewController.newInstance(withChild: mainVC)
         
         let navigationViewController = UINavigationController(rootViewController: viewController)
 

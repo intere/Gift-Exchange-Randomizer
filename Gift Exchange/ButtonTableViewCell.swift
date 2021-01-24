@@ -9,9 +9,8 @@
 import Cartography
 import UIKit
 
-protocol ButtonsCellDelegate: class {
+protocol ButtonsCellDelegate: RandomizeCellDelegate {
     func tappedReset()
-    func tappedRandomize()
 }
 
 class ButtonTableViewCell: UITableViewCell {
@@ -29,13 +28,24 @@ class ButtonTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+}
+
+// MARK: - User Actions
+
+extension ButtonTableViewCell {
 
     @IBAction
-    func resetButtonPressed() {
+    func tappedRandomize(_ source: Any) {
+        AnalyticsManager.shared.trackTappedRandomized()
+        delegate?.tappedRandomize()
+    }
+
+    @IBAction
+    func tappedReset(_ source: Any) {
         AnalyticsManager.shared.trackTappedReset()
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ResetAction"), object: nil)
-    }  
-    
+        delegate?.tappedReset()
+    }
 }
 
 // MARK: - Implementation
@@ -65,6 +75,9 @@ private extension ButtonTableViewCell {
             resetButton.right <= view.right - 40
             resetButton.bottom == view.bottom
         }
+
+        randomizeButton.addTarget(self, action: #selector(tappedRandomize(_:)), for: .touchUpInside)
+        resetButton.addTarget(self, action: #selector(tappedReset(_:)), for: .touchUpInside)
     }
 
 }

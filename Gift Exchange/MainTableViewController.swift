@@ -14,6 +14,10 @@ class MainTableViewController: UITableViewController {
     let analytics: AnalyticsManaging
     let nameManager: NameManaging
 
+    override var navigationController: UINavigationController? {
+        return super.navigationController ?? parent?.navigationController
+    }
+
     init(analytics: AnalyticsManaging, nameManager: NameManaging) {
         self.analytics = analytics
         self.nameManager = nameManager
@@ -56,14 +60,8 @@ class MainTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        registerForListeners()
 
         analytics.trackScreen(named: "Main")
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
     }
 
     // TODO: Keep track of selected cell
@@ -88,14 +86,25 @@ extension MainTableViewController: NameAddedDelegate {
 
 }
 
-// MARK: - notifications
+// MARK: - ButtonsCellDelegate
 
-extension MainTableViewController {
+extension MainTableViewController: ButtonsCellDelegate {
 
-    @objc
-    func resetAction(_ notification: NSNotification) {
+    func tappedReset() {
         NameManager.shared.clear()
         tableView.reloadData()
+    }
+
+    func tappedRandomize() {
+        let names = NameManager.shared.getAllNames()
+        AlertHelper.checkRandomizeMatchup(names: names, parentVC: self) { (success: Bool) in
+            guard success else {
+                return
+            }
+
+            let randomizeVC = RandomizeNamesTableViewController.newStyledInstance(with: names)
+            navigationController?.pushViewController(randomizeVC, animated: true)
+        }
     }
 
 }
@@ -149,7 +158,12 @@ extension MainTableViewController {
             return cell
 
         case 3:
-            return tableView.dequeueReusableCell(withIdentifier: "ButtonsCell", for: indexPath).clearBackground
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonsCell", for: indexPath).clearBackground
+            guard let buttonsCell = cell as? ButtonTableViewCell else {
+                return cell
+            }
+            buttonsCell.delegate = self
+            return buttonsCell
 
         default:
             return tableView.dequeueReusableCell(withIdentifier: "", for: indexPath).clearBackground
@@ -205,20 +219,7 @@ extension MainTableViewController {
 
 // MARK: - Helper functions
 
-fileprivate extension MainTableViewController {
-
-    func registerForListeners() {
-        let listenerMap = [
-            "ResetAction": #selector(resetAction(_:)),
-        ]
-
-        for key in listenerMap.keys {
-            guard let selector = listenerMap[key] else {
-                continue
-            }
-            NotificationCenter.default.addObserver(self, selector: selector, name: NSNotification.Name(rawValue: key), object: nil)
-        }
-    }
+private extension MainTableViewController {
 
     func indexPathForName(name: String) -> IndexPath? {
         guard let row = NameManager.shared.row(forName: name) else {
@@ -248,13 +249,11 @@ extension UITableViewCell {
         imageView.image = UIImage(named: "EnterYourNames")
         imageView.contentMode = .scaleAspectFit
 
-
         constrain(self, imageView) { (view, imageView) in
             imageView.centerX == view.centerX
             imageView.top == view.top
             imageView.bottom == view.bottom
-            imageView.left == view.left
-            imageView.right == view.right
+            imageView.width == 250
         }
 
         return clearBackground

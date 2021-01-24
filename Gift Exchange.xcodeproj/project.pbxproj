@@ -24,7 +24,6 @@
 		36F7D87425A219C2008BEEBD /* StyledParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D87325A219C2008BEEBD /* StyledParentViewController.swift */; };
 		3F51191D4C7231A295E036A4 /* Pods_Gift_Exchange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B7D3101FBE21CADAC376B7 /* Pods_Gift_Exchange.framework */; };
 		8973CE0C1DB592E600CC3DE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8973CE0B1DB592E600CC3DE4 /* AppDelegate.swift */; };
-		8973CE141DB592E600CC3DE4 /* Gift_Exchange.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8973CE121DB592E600CC3DE4 /* Gift_Exchange.xcdatamodeld */; };
 		8973CE161DB592E600CC3DE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8973CE151DB592E600CC3DE4 /* Assets.xcassets */; };
 		8973CE191DB592E600CC3DE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8973CE171DB592E600CC3DE4 /* LaunchScreen.storyboard */; };
 		89D8FD0E1DD7C69800E5BB4C /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D8FD0D1DD7C69800E5BB4C /* AlertHelper.swift */; };
@@ -63,7 +62,6 @@
 		8600CD2F231B8B24B3A483E1 /* Pods-Gift Exchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gift Exchange.release.xcconfig"; path = "Target Support Files/Pods-Gift Exchange/Pods-Gift Exchange.release.xcconfig"; sourceTree = "<group>"; };
 		8973CE081DB592E600CC3DE4 /* Gift Xchanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gift Xchanger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8973CE0B1DB592E600CC3DE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8973CE131DB592E600CC3DE4 /* Gift_Exchange.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gift_Exchange.xcdatamodel; sourceTree = "<group>"; };
 		8973CE151DB592E600CC3DE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8973CE181DB592E600CC3DE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8973CE1A1DB592E600CC3DE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -184,7 +182,6 @@
 				8973CE151DB592E600CC3DE4 /* Assets.xcassets */,
 				8973CE171DB592E600CC3DE4 /* LaunchScreen.storyboard */,
 				8973CE1A1DB592E600CC3DE4 /* Info.plist */,
-				8973CE121DB592E600CC3DE4 /* Gift_Exchange.xcdatamodeld */,
 			);
 			path = "Gift Exchange";
 			sourceTree = "<group>";
@@ -427,7 +424,6 @@
 				36B3F5DE1DCD6C6800EED2D8 /* RootViewController.swift in Sources */,
 				36C45E6B1DCE3D6C00E87710 /* MatchupManager.swift in Sources */,
 				36B3F5E51DCD718C00EED2D8 /* NameManager.swift in Sources */,
-				8973CE141DB592E600CC3DE4 /* Gift_Exchange.xcdatamodeld in Sources */,
 				36B3F5E21DCD701100EED2D8 /* RandomizeButtonTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -659,19 +655,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		8973CE121DB592E600CC3DE4 /* Gift_Exchange.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				8973CE131DB592E600CC3DE4 /* Gift_Exchange.xcdatamodel */,
-			);
-			currentVersion = 8973CE131DB592E600CC3DE4 /* Gift_Exchange.xcdatamodel */;
-			path = Gift_Exchange.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 8973CE001DB592E600CC3DE4 /* Project object */;
 }

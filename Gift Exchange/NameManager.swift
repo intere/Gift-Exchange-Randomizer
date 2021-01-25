@@ -75,13 +75,7 @@ extension NameManager: NameManaging {
 
     // Gets you the row for the provided name
     func row(forName name: String) -> Int? {
-        for i in 0..<names.count {
-            if names[i] == name {
-                return i
-            }
-        }
-        return nil
+        names.firstIndex(where: { $0 == name })
     }
 
 }
-

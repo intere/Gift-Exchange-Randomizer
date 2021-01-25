@@ -27,7 +27,7 @@ class MockNameManager: NameManaging {
 
     func add(name person: String) {
         addCalls.append(person)
-        // TODO: should we add the name to the names collection?
+        #warning("should we add the name to the names collection?")
     }
 
     func remove(index row: Int) {

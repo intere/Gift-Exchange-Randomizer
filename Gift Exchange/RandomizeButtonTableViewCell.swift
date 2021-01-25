@@ -16,7 +16,7 @@ protocol RandomizeCellDelegate: class {
 class RandomizeButtonTableViewCell: UITableViewCell {
 
     let randomizeButton = UIButton(type: .custom)
-    var delegate: RandomizeCellDelegate?
+    weak var delegate: RandomizeCellDelegate?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

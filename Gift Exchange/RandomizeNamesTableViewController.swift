@@ -49,18 +49,17 @@ class RandomizeNamesTableViewController: UITableViewController {
         analyticsManager.trackScreen(named: "Randomize Names")
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self)
-        super.viewWillDisappear(animated)
-    }
-
 }
 
 // MARK: - API
 
 extension RandomizeNamesTableViewController {
 
-    static func newStyledInstance(with names: [String], analyticsManager: AnalyticsManaging, matchupManager: MatchupManaging, nameManager: NameManaging) -> StyledParentViewController {
+    static func newStyledInstance(with names: [String],
+                                  analyticsManager: AnalyticsManaging,
+                                  matchupManager: MatchupManaging,
+                                  nameManager: NameManaging
+    ) -> StyledParentViewController {
 
         let childVC = RandomizeNamesTableViewController(analyticsManager: analyticsManager, matchupManager: matchupManager, nameManager: nameManager)
         childVC.names = names
@@ -129,7 +128,7 @@ extension RandomizeNamesTableViewController {
 // MARK: - Helper functions
 
 private extension RandomizeNamesTableViewController {
-    
+
     func randomizeMatchup() {
         names = nameManager.getAllNames()
         AlertHelper.checkRandomizeMatchup(names: names, parentVC: self) { (success: Bool) in
@@ -142,5 +141,3 @@ private extension RandomizeNamesTableViewController {
         }
     }
 }
-
-

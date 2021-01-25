@@ -15,10 +15,12 @@ class MainTableViewControllerSpec: QuickSpec {
 
     override func spec() {
 
+        // swiftlint:disable implicitly_unwrapped_optional
         var mockAnalyticsManager: MockAnalyticsManager!
         var mockMatchupManager: MockMatchupManager!
         var mockNameManager: MockNameManager!
         var subject: MainTableViewController!
+        // swiftlint:enable implicitly_unwrapped_optional
 
         describe("MainTableViewController") {
             beforeEach {

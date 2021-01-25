@@ -8,16 +8,16 @@
 
 import UIKit
 
-typealias RandomizeNameCallback = (_ success: Bool) -> ()
+typealias RandomizeNameCallback = (_ success: Bool) -> Void
 
 class AlertHelper {
-    
+
     static func popNotEnoughNameUpWarning(parentVC: UIViewController) {
         let alert = UIAlertController(title: "Try Again", message: "Enter at least three names", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         parentVC.present(alert, animated: true, completion: nil)
     }
-    
+
     static func popDuplicateNameWarning(parentVC: UIViewController) {
         let alert = UIAlertController(title: "Try Again", message: "Names must be different", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -25,28 +25,27 @@ class AlertHelper {
     }
 
     static  func checkRandomizeMatchup(names: [String], parentVC: UIViewController, callback: RandomizeNameCallback) {
-        
+
         guard names.count > 2 else {
             popNotEnoughNameUpWarning(parentVC: parentVC)
             callback(false)
             return
         }
-        
-        for i in 0..<names.count {
-            for j in 0..<names.count {
-                guard j != i else {
+
+        for indexI in 0..<names.count {
+            for indexJ in 0..<names.count {
+                guard indexJ != indexI else {
                     continue
                 }
-                if names[i] == names[j] {
+                if names[indexI] == names[indexJ] {
                     callback(false)
                     popDuplicateNameWarning(parentVC: parentVC)
                     return
                 }
             }
         }
-        
+
         callback(true)
     }
-
 
 }

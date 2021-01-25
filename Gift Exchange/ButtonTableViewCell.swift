@@ -18,7 +18,7 @@ class ButtonTableViewCell: UITableViewCell {
     let randomizeButton = UIButton(type: .custom)
     let resetButton = UIButton(type: .custom)
 
-    var delegate: ButtonsCellDelegate?
+    weak var delegate: ButtonsCellDelegate?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,7 +28,7 @@ class ButtonTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
 }
 
 // MARK: - User Actions

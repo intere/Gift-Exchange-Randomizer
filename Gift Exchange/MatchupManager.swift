@@ -55,7 +55,7 @@ extension MatchupManager: MatchupManaging {
 private extension MatchupManager {
 
     func helpRandomize() {
-        guard names.count > 0 else {
+        guard !names.isEmpty else {
             randomMatchup = [:]
             return
         }
@@ -72,10 +72,11 @@ private extension MatchupManager {
     }
 
     /** 
-     Returns the index of the unassigned name to pick for the assign to name, unless the unassigned name has only one row left, and it's the same as the assignTo name, if that's the case, then return nil.
+     Returns the index of the unassigned name to pick for the assign to name, unless the unassigned name has only one row left,
+     and it's the same as the assignTo name, if that's the case, then return nil.
      */
     func pickRandomName(assignTo name: String, unassignedNames names: [String]) -> Int? {
-        guard names.count > 0 else {
+        guard !names.isEmpty else {
             return nil
         }
         if names.count == 1 && names.first == name {

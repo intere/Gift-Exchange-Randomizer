@@ -66,9 +66,6 @@ class MainTableViewController: UITableViewController {
 
         analytics.trackScreen(named: "Main")
     }
-
-    // TODO: Keep track of selected cell
-
 }
 
 // MARK: - NameAddedDelegate
@@ -189,9 +186,11 @@ extension MainTableViewController {
         }
     }
 
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    override func tableView(_ tableView: UITableView,
+                            editActionsForRowAt indexPath: IndexPath
+    ) -> [UITableViewRowAction]? {
 
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (_, indexPath) in
 
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)

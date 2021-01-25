@@ -42,7 +42,7 @@ private extension AppDelegate {
         )
 
         let viewController = StyledParentViewController.newInstance(withChild: mainVC)
-        
+
         let navigationViewController = UINavigationController(rootViewController: viewController)
 
         let window = UIWindow()

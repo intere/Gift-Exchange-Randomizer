@@ -11,8 +11,9 @@ import Quick
 import Nimble
 import XCTest
 
-class MatchupManagerSpec: QuickSpec {
+// swiftlint:disable implicitly_unwrapped_optional
 
+class MatchupManagerSpec: QuickSpec {
     override func spec() {
         let names = [ "Bob", "Mary", "Jane", "Eric", "Homer", "Marge", "Bart" ]
         var subject: MatchupManager!
@@ -42,3 +43,5 @@ class MatchupManagerSpec: QuickSpec {
         }
     }
 }
+
+// swiftlint:enable implicitly_unwrapped_optional

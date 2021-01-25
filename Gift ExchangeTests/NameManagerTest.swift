@@ -11,13 +11,15 @@ import Quick
 import Nimble
 import XCTest
 
-
 class NameManagerSpec: QuickSpec {
 
     override func spec() {
         context("Add Names") {
+            // swiftlint:disable implicitly_unwrapped_optional
             var defaults: UserDefaults!
             var subject: NameManager!
+            // swiftlint:enable implicitly_unwrapped_optional
+
             beforeEach {
                 defaults = .newTestInstance
                 subject = NameManager(with: defaults)

@@ -6,12 +6,52 @@
 //  Copyright © 2016 Willis Programming. All rights reserved.
 //
 
+import Cartography
 import UIKit
+
+protocol RandomizeCellDelegate: class {
+    func tappedRandomize()
+}
 
 class RandomizeButtonTableViewCell: UITableViewCell {
 
-    @IBAction func randomizePressed(_ sender: UIButton) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "RandomizeAction"), object: nil)
+    let randomizeButton = UIButton(type: .custom)
+    weak var delegate: RandomizeCellDelegate?
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        buildView()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    @IBAction
+    func randomizePressed(_ source: Any) {
+        delegate?.tappedRandomize()
+    }
+
+}
+
+// MARK: - Implementation
+
+private extension RandomizeButtonTableViewCell {
+
+    func buildView() {
+        randomizeButton.setImage(UIImage(named: "RandomizeBtn"), for: .normal)
+        randomizeButton.addTarget(self, action: #selector(randomizePressed(_:)), for: .touchUpInside)
+
+        contentView.addSubview(randomizeButton)
+
+        constrain(contentView, randomizeButton) { (view, randomizeButton) in
+            randomizeButton.height == 50
+            randomizeButton.width == 100
+
+            randomizeButton.top == view.top
+            randomizeButton.centerX == view.centerX
+            randomizeButton.bottom == view.bottom
+        }
     }
 
 }

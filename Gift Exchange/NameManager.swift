@@ -8,25 +8,38 @@
 
 import Foundation
 
+protocol NameManaging {
+    func getAllNames() -> [String]
+    func add(name person: String)
+    func remove(index row: Int)
+    func remove(name person: String)
+    func clear()
+    func row(forName name: String) -> Int?
+}
+
 /**
  * This class is responsible for managing the list of people
  */
 class NameManager {
-    static let shared = NameManager()
+    let defaults: UserDefaults
+
+    init(with defaults: UserDefaults) {
+        self.defaults = defaults
+    }
 
     fileprivate var names: [String] {
         get {
-            return UserDefaults.standard.array(forKey: "names") as? [String] ?? [String]()
+            return defaults.array(forKey: "names") as? [String] ?? [String]()
         }
         set {
-            UserDefaults.standard.set(newValue.sorted(), forKey: "names")
+            defaults.set(newValue.sorted(), forKey: "names")
         }
     }
 }
 
-// MARK: - API
+// MARK: - NameManaging
 
-extension NameManager {
+extension NameManager: NameManaging {
 
     // Gets you the list of names
     func getAllNames() -> [String] {
@@ -62,18 +75,7 @@ extension NameManager {
 
     // Gets you the row for the provided name
     func row(forName name: String) -> Int? {
-        for i in 0..<names.count {
-            if names[i] == name {
-                return i
-            }
-        }
-        return nil
+        names.firstIndex(where: { $0 == name })
     }
-
-}
-
-// MARK: - Helpers
-
-fileprivate extension NameManager {
 
 }

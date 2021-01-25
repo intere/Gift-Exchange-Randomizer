@@ -6,52 +6,74 @@
 //  Copyright © 2016 Willis Programming. All rights reserved.
 //
 
+import Cartography
 import UIKit
 
 class MainTableViewController: UITableViewController {
 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.estimatedRowHeight = 60
-        tableView.rowHeight = UITableViewAutomaticDimension
+    let analytics: AnalyticsManaging
+    let nameManager: NameManaging
+    let matchupManager: MatchupManaging
+
+    override var navigationController: UINavigationController? {
+        return super.navigationController ?? parent?.navigationController
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    init(analytics: AnalyticsManaging, nameManager: NameManaging, matchupManager: MatchupManaging) {
+        self.analytics = analytics
+        self.nameManager = nameManager
+        self.matchupManager = matchupManager
+        super.init(style: .plain)
+        tableView.separatorStyle = .none
+        view.backgroundColor = .clear
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        tableView.estimatedRowHeight = 60
+        tableView.allowsSelection = false
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "NamesCell")
+        tableView.register(NameTableViewCell.self, forCellReuseIdentifier: "NameCell")
+        tableView.register(EnterNameTableViewCell.self, forCellReuseIdentifier: "AddNameCell")
+        tableView.register(ButtonTableViewCell.self, forCellReuseIdentifier: "ButtonsCell")
+
+        let headerView = UIView()
+        let logoView = UIImageView(image: UIImage(named: "GiftExchangeLogo"))
+        logoView.contentMode = .scaleAspectFit
+
+        headerView.addSubview(logoView)
+        constrain(headerView, logoView) { (view, logoView) in
+            logoView.top == view.top + 8
+            logoView.left == view.safeAreaLayoutGuide.left + 24
+            logoView.bottom == view.bottom - 8
+            logoView.right == view.safeAreaLayoutGuide.right - 24
+            logoView.height == 140
+        }
+
+        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 156)
+
+        tableView.tableHeaderView = headerView
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        registerForListeners()
-
+        analytics.trackScreen(named: "Main")
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
-    }
-
-    // TODO: Keep track of selected cell
-
 }
 
-// MARK: - notifications
+// MARK: - NameAddedDelegate
 
-extension MainTableViewController {
+extension MainTableViewController: NameAddedDelegate {
 
-    func newNameAdded(_ notification: NSNotification) {
-        guard let userInfo = notification.userInfo else {
-            // TODO: Log an error
-            return
-        }
-        guard let name = userInfo["name"] as? String, name != "" else {
-            // TODO: Log an error that there was no name provided back
-            return
-        }
-
-        NameManager.shared.add(name: name)
+    func added(name: String) {
+        nameManager.add(name: name)
 
         if let indexPath = indexPathForName(name: name) {
             tableView.beginUpdates()
@@ -62,9 +84,34 @@ extension MainTableViewController {
         }
     }
 
-    func resetAction(_ notification: NSNotification) {
-        NameManager.shared.clear()
+}
+
+// MARK: - ButtonsCellDelegate
+
+extension MainTableViewController: ButtonsCellDelegate {
+
+    func tappedReset() {
+        analytics.trackTappedReset()
+        nameManager.clear()
         tableView.reloadData()
+    }
+
+    func tappedRandomize() {
+        analytics.trackTappedRandomize()
+        let names = nameManager.getAllNames()
+        AlertHelper.checkRandomizeMatchup(names: names, parentVC: self) { (success: Bool) in
+            guard success else {
+                return
+            }
+
+            let randomizeVC = RandomizeNamesTableViewController.newStyledInstance(
+                with: names,
+                analyticsManager: analytics,
+                matchupManager: matchupManager,
+                nameManager: nameManager
+            )
+            navigationController?.pushViewController(randomizeVC, animated: true)
+        }
     }
 
 }
@@ -86,7 +133,7 @@ extension MainTableViewController {
             return 1
 
         case 2:
-            return NameManager.shared.getAllNames().count
+            return nameManager.getAllNames().count
 
         case 3:
             return 1
@@ -100,23 +147,33 @@ extension MainTableViewController {
 
         switch indexPath.section {
         case 0:
-            return tableView.dequeueReusableCell(withIdentifier: "NamesCell", for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: "NamesCell", for: indexPath).namesTextCell
 
         case 1:
-            return tableView.dequeueReusableCell(withIdentifier: "AddNameCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AddNameCell", for: indexPath).clearBackground
+            guard let enterNameCell = cell as? EnterNameTableViewCell else {
+                return cell
+            }
+            enterNameCell.delegate = self
+            return enterNameCell
 
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath).clearBackground
             if let nameCell = cell as? NameTableViewCell {
-                nameCell.name = NameManager.shared.getAllNames()[indexPath.row]
+                nameCell.name = nameManager.getAllNames()[indexPath.row]
             }
             return cell
 
         case 3:
-            return tableView.dequeueReusableCell(withIdentifier: "ButtonsCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonsCell", for: indexPath).clearBackground
+            guard let buttonsCell = cell as? ButtonTableViewCell else {
+                return cell
+            }
+            buttonsCell.delegate = self
+            return buttonsCell
 
         default:
-            return tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: "", for: indexPath).clearBackground
         }
     }
 
@@ -129,13 +186,15 @@ extension MainTableViewController {
         }
     }
 
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    override func tableView(_ tableView: UITableView,
+                            editActionsForRowAt indexPath: IndexPath
+    ) -> [UITableViewRowAction]? {
 
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (_, indexPath) in
 
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            NameManager.shared.remove(index: indexPath.row)
+            self.nameManager.remove(index: indexPath.row)
             tableView.endUpdates()
 
         }
@@ -145,41 +204,12 @@ extension MainTableViewController {
 
 }
 
-// MARK: - Navigation
-
-extension MainTableViewController {
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        let names = NameManager.shared.getAllNames()
-        var result = false
-        AlertHelper.checkRandomizeMatchup(names: names, parentVC: self) { (success: Bool) in
-            result = success
-        }
-        return result
-    }
-}
-
-
 // MARK: - Helper functions
 
-fileprivate extension MainTableViewController {
-
-    func registerForListeners() {
-        let listenerMap = [
-            "NewName": #selector(newNameAdded(_:)),
-            "ResetAction": #selector(resetAction(_:)),
-        ]
-
-        for key in listenerMap.keys {
-            guard let selector = listenerMap[key] else {
-                continue
-            }
-            NotificationCenter.default.addObserver(self, selector: selector, name: NSNotification.Name(rawValue: key), object: nil)
-        }
-    }
+private extension MainTableViewController {
 
     func indexPathForName(name: String) -> IndexPath? {
-        guard let row = NameManager.shared.row(forName: name) else {
+        guard let row = nameManager.row(forName: name) else {
             return nil
         }
 

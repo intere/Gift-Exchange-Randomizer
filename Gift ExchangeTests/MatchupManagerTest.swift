@@ -6,41 +6,42 @@
 //  Copyright © 2016 Willis Programming. All rights reserved.
 //
 
+@testable import Gift_Xchanger
+import Quick
+import Nimble
 import XCTest
-@testable import Gift_Exchange
 
-class MatchupManagerTest: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-}
+// swiftlint:disable implicitly_unwrapped_optional
 
-// MARK: - Test Randomize
+class MatchupManagerSpec: QuickSpec {
+    override func spec() {
+        let names = [ "Bob", "Mary", "Jane", "Eric", "Homer", "Marge", "Bart" ]
+        var subject: MatchupManager!
 
-extension MatchupManagerTest {
+        (0..<100).forEach { _ in
+            context("Randomize") {
+                var assignments: [String: String]!
+                beforeEach {
+                    subject = MatchupManager()
+                    subject.names = names
+                    assignments = subject.randomize()
+                }
 
-    func testRandomize() {
+                it("does not assign a person to themselves") {
+                    assignments.forEach { (key, value) in
+                        expect(value).toNot(equal(key))
+                    }
+                }
 
-        for _ in 0..<100 {
-            let names = [ "Bob", "Mary", "Jane", "Eric", "Homer", "Marge", "Bart" ]
-            MatchupManager.shared.names = names
-            MatchupManager.shared.randomize()
-            let assignments = MatchupManager.shared.randomMatchup
-
-            for key in assignments.keys {
-                XCTAssertNotEqual(key, assignments[key], "\(key) was assigned to themselves")
-            }
-            for name in names {
-                XCTAssertTrue(Set<String>(assignments.keys).contains(name))
-                XCTAssertTrue(Set<String>(assignments.values).contains(name))
+                it("assigns every single person") {
+                    names.forEach { name in
+                        expect(assignments.keys.contains(name)).to(beTrue())
+                        expect(assignments.values.contains(name)).to(beTrue())
+                    }
+                }
             }
         }
-
     }
-
 }
+
+// swiftlint:enable implicitly_unwrapped_optional

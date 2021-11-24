@@ -1,16 +1,35 @@
 PODS:
-  - Crashlytics (3.8.3):
-    - Fabric (~> 1.6.3)
-  - Fabric (1.6.11)
+  - AppCenter (4.1.0):
+    - AppCenter/Analytics (= 4.1.0)
+    - AppCenter/Crashes (= 4.1.0)
+  - AppCenter/Analytics (4.1.0):
+    - AppCenter/Core
+  - AppCenter/Core (4.1.0)
+  - AppCenter/Crashes (4.1.0):
+    - AppCenter/Core
+  - Cartography (4.0.0)
+  - Nimble (9.0.0)
+  - Quick (3.0.0)
 
 DEPENDENCIES:
-  - Crashlytics
-  - Fabric
+  - AppCenter
+  - Cartography
+  - Nimble
+  - Quick
+
+SPEC REPOS:
+  trunk:
+    - AppCenter
+    - Cartography
+    - Nimble
+    - Quick
 
 SPEC CHECKSUMS:
-  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
-  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  AppCenter: 8832b158d17e54845c3b88a91076218f0b07174d
+  Cartography: c5626d29056b20f1e95c017326ee4df57cc39ad8
+  Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
+  Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
 
-PODFILE CHECKSUM: 5d6dc98b02180be2a8441658c9976002d57a673f
+PODFILE CHECKSUM: 7cb318a86beec43f889053547c5575f2acf5d045
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.10.0

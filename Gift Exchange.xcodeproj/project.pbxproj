@@ -307,7 +307,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/artifacts/firebase-ios-sdk/FirebaseCrashlytics/run\"\n";
+			shellScript = "SCRIPT=\"${BUILD_DIR%/Build/*}/SourcePackages/artifacts/firebase-ios-sdk/FirebaseCrashlytics/run\"\nif [ -f \"$SCRIPT\" ]; then\n  \"$SCRIPT\"\nelse\n  echo \"warning: Crashlytics run script not found at $SCRIPT, skipping dSYM upload.\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

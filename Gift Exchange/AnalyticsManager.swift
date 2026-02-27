@@ -6,7 +6,7 @@
 //  Copyright © 2018 Willis Programming. All rights reserved.
 //
 
-import Foundation
+import FirebaseAnalytics
 
 class AnalyticsManager {
     static let shared = AnalyticsManager()
@@ -15,13 +15,16 @@ class AnalyticsManager {
     ///
     /// - Parameter named: The name of the screen that was viewed.
     func trackScreen(named: String) {
+        Analytics.logEvent(AnalyticsEventScreenView, parameters: [AnalyticsParameterScreenName: named])
     }
 
     /// Tracks that the "Randomize" button was tapped.
     func trackTappedRandomized() {
+        Analytics.logEvent("randomized", parameters: nil)
     }
 
     /// Tracks that the "Reset" button was tapped.
     func trackTappedReset() {
+        Analytics.logEvent("reset", parameters: nil)
     }
 }

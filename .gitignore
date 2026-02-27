@@ -20,6 +20,8 @@ DerivedData
 xcuserdata
 
 ## Other
+*.xcworkspace/
+!*.xcodeproj/project.xcworkspace/
 *.xccheckout
 *.moved-aside
 *.xcuserstate

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Willis Programming. All rights reserved.
 //
 
-import AppCenterAnalytics
+import Foundation
 
 class AnalyticsManager {
     static let shared = AnalyticsManager()
@@ -15,16 +15,13 @@ class AnalyticsManager {
     ///
     /// - Parameter named: The name of the screen that was viewed.
     func trackScreen(named: String) {
-        Analytics.trackEvent("trackScreen", withProperties: ["name": named])
     }
 
     /// Tracks that the "Randomize" button was tapped.
     func trackTappedRandomized() {
-        Analytics.trackEvent("randomized")
     }
 
     /// Tracks that the "Reset" button was tapped.
     func trackTappedReset() {
-        Analytics.trackEvent("reset")
     }
 }

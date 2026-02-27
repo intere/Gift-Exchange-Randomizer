@@ -11,13 +11,13 @@
 
 # This is the minimum version number required.
 # Update this, if you use features of a newer version
-fastlane_version "1.107.0"
+fastlane_version "2.232.2"
 
 default_platform :ios
 
 platform :ios do
   scheme = "Gift Exchange"
-  device = "iPhone 8 (14.3)"
+  device = "iPhone 16 Pro (26.0)"
 
   before_all do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
